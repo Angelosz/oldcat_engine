@@ -1,8 +1,9 @@
-#include <iostream>
+#include <OldCat/Application.h>
 
 int main()
 {
-    std::cout << "Hello from OldCat Engine!\n";
+    OldCat::Application app;
+    app.run();
     
     return 0;
 }
