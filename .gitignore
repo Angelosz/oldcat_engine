@@ -1,3 +1,9 @@
+# Build
+build/
+
+# Visual Studio
+.vs/
+
 # Prerequisites
 *.d
 
