@@ -1,5 +1,6 @@
 add_executable(OldCatSandbox
     main.cpp
+    Game_ClickCounter.cpp
 )
 
 target_link_libraries(OldCatSandbox

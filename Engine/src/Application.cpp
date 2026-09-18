@@ -4,8 +4,9 @@
 
 namespace OldCat
 {
-	OldCat::Application::Application()
-		: m_sdl(std::make_unique<SDLContext>())
+	OldCat::Application::Application(Game& game)
+		: m_game(game)
+		, m_sdl(std::make_unique<SDLContext>())
 		, m_window("OldCat Engine", 800, 600) {}
 
 	OldCat::Application::~Application() = default;
@@ -21,7 +22,10 @@ namespace OldCat
 			if (m_input.quitRequested())
 			{
 				running = false;
+				continue;
 			}
+
+			m_game.update(m_input);
 		}
 	}
 }

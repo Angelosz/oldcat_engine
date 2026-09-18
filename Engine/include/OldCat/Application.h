@@ -3,6 +3,7 @@
 #include <memory>
 #include <OldCat/Window.h>
 #include <OldCat/Input.h>
+#include <OldCat/Game.h>
 
 namespace OldCat
 {
@@ -11,14 +12,15 @@ namespace OldCat
 	class Application
 	{
 	public:
-		Application();
+		Application(Game& game);
 		~Application();
 
 		void run();
 
 	private:
-		std::unique_ptr<SDLContext> m_sdl;
+		Game& m_game;
 
+		std::unique_ptr<SDLContext> m_sdl;
 		Window m_window;
 		Input m_input;
 	};
