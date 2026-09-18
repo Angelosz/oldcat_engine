@@ -7,7 +7,8 @@ namespace OldCat
 	OldCat::Application::Application(Game& game)
 		: m_game(game)
 		, m_sdl(std::make_unique<SDLContext>())
-		, m_window("OldCat Engine", 800, 600) {}
+		, m_window("OldCat Engine", 800, 600)
+		, m_renderer(m_window) {}
 
 	OldCat::Application::~Application() = default;
 
@@ -26,6 +27,12 @@ namespace OldCat
 			}
 
 			m_game.update(m_input);
+
+			m_renderer.clear();
+
+			m_game.render(m_renderer);
+
+			m_renderer.present();
 		}
 	}
 }

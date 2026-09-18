@@ -3,6 +3,7 @@
 namespace OldCat
 {
 	class Input;
+	class Renderer;
 
 	class Game
 	{
@@ -10,5 +11,6 @@ namespace OldCat
 		virtual ~Game() = default;
 
 		virtual void update(const Input& input) = 0;
+		virtual void render(Renderer& renderer) = 0;
 	};
 }

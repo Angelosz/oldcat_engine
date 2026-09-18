@@ -1,5 +1,6 @@
 #include "Game_ClickCounter.h"
 #include <OldCat/Input.h>
+#include <OldCat/Renderer.h>
 
 #include <iostream>
 
@@ -11,4 +12,9 @@ void Game_ClickCounter::update(const OldCat::Input& input)
 
 		std::cout << "Clicks: " << m_counter << '\n';
 	}
+}
+
+void Game_ClickCounter::render(OldCat::Renderer& renderer)
+{
+
 }

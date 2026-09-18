@@ -3,6 +3,7 @@ add_library(OldCatEngine
     src/Window.cpp
     src/Detail/SDLContext.cpp
     src/Input.cpp
+    src/Renderer.cpp
 )
 
 target_include_directories(OldCatEngine

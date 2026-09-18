@@ -2,16 +2,12 @@
 
 #include <OldCat/Game.h>
 
-namespace OldCat
-{
-	class Input;
-}
-
 class Game_ClickCounter : public OldCat::Game
 {
 public:
-	void update(const OldCat::Input& input) override;
+    void update(const OldCat::Input& input) override;
+    void render(OldCat::Renderer& renderer) override;
 
 private:
-	int m_counter = 0;
+    int m_counter = 0;
 };

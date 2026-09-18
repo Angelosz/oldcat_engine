@@ -3,6 +3,7 @@
 #include <memory>
 #include <OldCat/Window.h>
 #include <OldCat/Input.h>
+#include <OldCat/Renderer.h>
 #include <OldCat/Game.h>
 
 namespace OldCat
@@ -22,6 +23,7 @@ namespace OldCat
 
 		std::unique_ptr<SDLContext> m_sdl;
 		Window m_window;
+		Renderer m_renderer;
 		Input m_input;
 	};
 }

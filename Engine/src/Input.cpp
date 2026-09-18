@@ -20,6 +20,7 @@ namespace OldCat
 
 			case SDL_EVENT_MOUSE_BUTTON_DOWN:
 			{
+
 				switch (event.button.button)
 				{
 				case SDL_BUTTON_LEFT:
@@ -27,11 +28,11 @@ namespace OldCat
 					break;
 
 				case SDL_BUTTON_MIDDLE:
-					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Left)] = true;
+					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Middle)] = true;
 					break;
 
 				case SDL_BUTTON_RIGHT:
-					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Left)] = true;
+					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Right)] = true;
 					break;
 				}
 				break;

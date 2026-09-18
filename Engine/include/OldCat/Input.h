@@ -6,7 +6,7 @@ namespace OldCat
 {
 	enum class MouseButton
 	{
-		Left = 0,
+		Left,
 		Middle,
 		Right
 	};
