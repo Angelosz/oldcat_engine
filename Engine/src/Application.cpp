@@ -1,30 +1,14 @@
 #include <OldCat/Application.h>
+#include <OldCat/Detail/SDLContext.h>
 #include <OldCat/Window.h>
-#include <SDL3/SDL.h>
-#include <stdexcept>
 
 namespace OldCat
 {
 	OldCat::Application::Application()
-	{
-		if (!SDL_Init(SDL_INIT_VIDEO))
-		{
-			throw std::runtime_error(SDL_GetError());
-		}
+		: m_sdl(std::make_unique<SDLContext>())
+		, m_window("OldCat Engine", 800, 600) {}
 
-		m_window = std::make_unique<Window>(
-			"OldCat Engine",
-			800,
-			600
-		);
-	}
-
-	OldCat::Application::~Application()
-	{
-		m_window.reset();
-
-		SDL_Quit();
-	}
+	OldCat::Application::~Application() = default;
 
 	void OldCat::Application::run()
 	{
@@ -32,14 +16,11 @@ namespace OldCat
 
 		while (running)
 		{
-			SDL_Event event;
+			m_input.processEvents();
 
-			while (SDL_PollEvent(&event))
+			if (m_input.quitRequested())
 			{
-				if (event.type == SDL_EVENT_QUIT)
-				{
-					running = false;
-				}
+				running = false;
 			}
 		}
 	}

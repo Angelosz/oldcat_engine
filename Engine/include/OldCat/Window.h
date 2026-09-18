@@ -13,8 +13,6 @@ namespace OldCat
 		Window(const Window&) = delete;
 		Window& operator=(const Window&) = delete;
 
-		SDL_Window* getHandle() const;
-
 	private:
 		SDL_Window* m_handle;
 	};

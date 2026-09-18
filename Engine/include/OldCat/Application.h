@@ -1,10 +1,12 @@
 #pragma once
 
 #include <memory>
+#include <OldCat/Window.h>
+#include <OldCat/Input.h>
 
 namespace OldCat
 {
-	class Window;
+	class SDLContext;
 
 	class Application
 	{
@@ -15,6 +17,9 @@ namespace OldCat
 		void run();
 
 	private:
-		std::unique_ptr<Window> m_window;
+		std::unique_ptr<SDLContext> m_sdl;
+
+		Window m_window;
+		Input m_input;
 	};
 }

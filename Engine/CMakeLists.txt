@@ -1,6 +1,8 @@
 add_library(OldCatEngine
     src/Application.cpp
     src/Window.cpp
+    src/Detail/SDLContext.cpp
+    src/Input.cpp
 )
 
 target_include_directories(OldCatEngine
@@ -9,6 +11,6 @@ target_include_directories(OldCatEngine
 )
 
 target_link_libraries(OldCatEngine
-    PUBLIC
+    PRIVATE
         SDL3::SDL3
 )
