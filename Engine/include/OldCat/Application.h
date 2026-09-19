@@ -4,23 +4,24 @@
 #include <OldCat/Window.h>
 #include <OldCat/Input.h>
 #include <OldCat/Renderer.h>
-#include <OldCat/Game.h>
 
 namespace OldCat
 {
+	class Game;
 	class SDLContext;
 
 	class Application
 	{
 	public:
-		Application(Game& game);
+		Application();
 		~Application();
 
-		void run();
+		Application(const Application&) = delete;
+		Application& operator=(const Application&) = delete;
+
+		void run(Game& game);
 
 	private:
-		Game& m_game;
-
 		std::unique_ptr<SDLContext> m_sdl;
 		Window m_window;
 		Renderer m_renderer;

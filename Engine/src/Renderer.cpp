@@ -2,6 +2,8 @@
 #include <OldCat/Window.h>
 
 #include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
+
 #include <stdexcept>
 
 namespace OldCat
@@ -34,5 +36,42 @@ namespace OldCat
 	void Renderer::present()
 	{
 		SDL_RenderPresent(m_handle);
+	}
+
+	void Renderer::drawText(const Font& font, const char* text, int x, int y)
+	{
+		SDL_Color color{ 255, 255, 255, 255 };
+
+		SDL_Surface* surface = TTF_RenderText_Blended(font.m_handle, text, 0, color);
+
+		if (surface == nullptr)
+		{
+			throw std::runtime_error(SDL_GetError());
+		}
+
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(m_handle, surface);
+
+		SDL_DestroySurface(surface);
+
+		if (texture == nullptr)
+		{
+			throw std::runtime_error(SDL_GetError());
+		}
+
+		SDL_FRect destination{
+			static_cast<float>(x),
+			static_cast<float>(y),
+			static_cast<float>(texture->w),
+			static_cast<float>(texture->h),
+		};
+
+		SDL_RenderTexture(
+			m_handle,
+			texture,
+			nullptr,
+			&destination
+		);
+
+		SDL_DestroyTexture(texture);
 	}
 }

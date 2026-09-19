@@ -1,9 +1,10 @@
-add_library(OldCatEngine
+add_library(OldCatEngine STATIC
     src/Application.cpp
     src/Window.cpp
     src/Detail/SDLContext.cpp
     src/Input.cpp
     src/Renderer.cpp
+    src/Font.cpp
 )
 
 target_include_directories(OldCatEngine
@@ -12,6 +13,7 @@ target_include_directories(OldCatEngine
 )
 
 target_link_libraries(OldCatEngine
-    PRIVATE
+    PUBLIC
         SDL3::SDL3
+        SDL3_ttf::SDL3_ttf
 )

@@ -1,5 +1,6 @@
 #include <OldCat/Detail/SDLContext.h>
 #include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include <stdexcept>
 
 namespace OldCat
@@ -10,10 +11,17 @@ namespace OldCat
 		{
 			throw std::runtime_error(SDL_GetError());
 		}
+
+		if(!TTF_Init())
+		{
+			SDL_Quit();
+			throw std::runtime_error(SDL_GetError());
+		}
 	}
 
 	OldCat::SDLContext::~SDLContext()
 	{
+		TTF_Quit();
 		SDL_Quit();
 	}
 }

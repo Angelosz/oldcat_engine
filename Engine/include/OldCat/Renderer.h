@@ -1,4 +1,5 @@
 #pragma once
+#include <OldCat/Font.h>
 
 struct SDL_Renderer;
 
@@ -17,6 +18,8 @@ namespace OldCat
 
 		void clear();
 		void present();
+
+		void drawText(const Font& font, const char* text, int x, int y);
 
 	private:
 		SDL_Renderer* m_handle;

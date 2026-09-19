@@ -1,18 +1,18 @@
 #include <OldCat/Application.h>
+
 #include <OldCat/Detail/SDLContext.h>
-#include <OldCat/Window.h>
+#include <OldCat/Game.h>
 
 namespace OldCat
 {
-	OldCat::Application::Application(Game& game)
-		: m_game(game)
-		, m_sdl(std::make_unique<SDLContext>())
+	OldCat::Application::Application()
+		: m_sdl(std::make_unique<SDLContext>())
 		, m_window("OldCat Engine", 800, 600)
 		, m_renderer(m_window) {}
 
 	OldCat::Application::~Application() = default;
 
-	void OldCat::Application::run()
+	void OldCat::Application::run(Game& game)
 	{
 		bool running = true;
 
@@ -26,11 +26,11 @@ namespace OldCat
 				continue;
 			}
 
-			m_game.update(m_input);
+			game.update(m_input);
 
 			m_renderer.clear();
 
-			m_game.render(m_renderer);
+			game.render(m_renderer);
 
 			m_renderer.present();
 		}
