@@ -1,12 +1,25 @@
 #include <OldCat/Application.h>
+
 #include "Game_ClickCounter.h"
+
+#include <exception>
+#include <iostream>
 
 int main()
 {
-    Game_ClickCounter testgame;
+    try {
+        OldCat::Application app;
+        Game_ClickCounter game;
 
-    OldCat::Application app(testgame);
-    app.run();
-    
+        app.run(game);
+    }
+    catch (const std::exception& exception)
+    {
+        std::cerr << "ERROR\n"
+            << exception.what()
+            << "\n";
+        
+        return 1;
+    }
     return 0;
 }
