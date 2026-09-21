@@ -5,6 +5,8 @@ add_library(OldCatEngine STATIC
     src/Input.cpp
     src/Renderer.cpp
     src/Font.cpp
+    src/Texture.cpp
+    src/AssetManager.cpp
 )
 
 target_include_directories(OldCatEngine

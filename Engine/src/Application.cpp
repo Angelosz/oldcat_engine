@@ -7,8 +7,9 @@ namespace OldCat
 {
 	OldCat::Application::Application()
 		: m_sdl(std::make_unique<SDLContext>())
-		, m_window("OldCat Engine", 800, 600)
-		, m_renderer(m_window) {}
+		, m_window("OldCat Engine", 540, 960)
+		, m_renderer(m_window)
+		, m_assetManager(m_renderer) {}
 
 	OldCat::Application::~Application() = default;
 
@@ -34,5 +35,10 @@ namespace OldCat
 
 			m_renderer.present();
 		}
+	}
+
+	AssetManager& Application::assetManager()
+	{
+		return m_assetManager;
 	}
 }

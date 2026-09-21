@@ -1,9 +1,11 @@
 #pragma once
 
 #include <memory>
+
 #include <OldCat/Window.h>
 #include <OldCat/Input.h>
 #include <OldCat/Renderer.h>
+#include <OldCat/AssetManager.h>
 
 namespace OldCat
 {
@@ -21,10 +23,14 @@ namespace OldCat
 
 		void run(Game& game);
 
+		AssetManager& assetManager();
+
 	private:
 		std::unique_ptr<SDLContext> m_sdl;
 		Window m_window;
 		Renderer m_renderer;
 		Input m_input;
+
+		AssetManager m_assetManager;
 	};
 }

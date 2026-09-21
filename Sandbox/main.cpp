@@ -9,7 +9,7 @@ int main()
 {
     try {
         OldCat::Application app;
-        Game_ClickCounter game;
+        Game_ClickCounter game(app.assetManager());
 
         app.run(game);
     }

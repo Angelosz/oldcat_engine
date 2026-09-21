@@ -1,5 +1,6 @@
 #include <OldCat/Renderer.h>
 #include <OldCat/Window.h>
+#include <OldCat/Texture.h>
 
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
@@ -73,5 +74,23 @@ namespace OldCat
 		);
 
 		SDL_DestroyTexture(texture);
+	}
+	void Renderer::drawTexture(const Texture& texture, int x, int y)
+	{
+		SDL_FRect destination{
+			static_cast<float>(x),
+			static_cast<float>(y),
+			texture.m_width,
+			texture.m_height
+		};
+
+		if (!SDL_RenderTexture(
+			m_handle,
+			texture.m_handle,
+			nullptr,
+			&destination))
+		{
+			throw std::runtime_error(SDL_GetError());
+		}
 	}
 }
