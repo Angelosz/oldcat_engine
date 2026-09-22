@@ -7,6 +7,8 @@ add_library(OldCatEngine STATIC
     src/Font.cpp
     src/Texture.cpp
     src/AssetManager.cpp
+    src/GameContext.cpp
+    src/Game.cpp
 )
 
 target_include_directories(OldCatEngine

@@ -32,9 +32,6 @@ namespace OldCat
 			throw std::runtime_error(SDL_GetError());
 		}
 
-		m_width = 0;
-		m_height = 0;
-
 		if (!SDL_GetTextureSize(
 			m_handle,
 			&m_width,

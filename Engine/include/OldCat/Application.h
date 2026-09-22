@@ -6,6 +6,7 @@
 #include <OldCat/Input.h>
 #include <OldCat/Renderer.h>
 #include <OldCat/AssetManager.h>
+#include <OldCat/GameContext.h>
 
 namespace OldCat
 {
@@ -23,14 +24,15 @@ namespace OldCat
 
 		void run(Game& game);
 
-		AssetManager& assetManager();
+		GameContext& context();
 
 	private:
 		std::unique_ptr<SDLContext> m_sdl;
 		Window m_window;
 		Renderer m_renderer;
 		Input m_input;
-
 		AssetManager m_assetManager;
+
+		GameContext m_context;
 	};
 }

@@ -14,14 +14,15 @@ namespace OldCat
 class Game_ClickCounter : public OldCat::Game
 {
 public:
-    explicit Game_ClickCounter(OldCat::AssetManager& assetManager);
+    explicit Game_ClickCounter(OldCat::GameContext& gameContext);
 
-    void update(const OldCat::Input& input) override;
-    void render(OldCat::Renderer& renderer) override;
+    void update() override;
+    void render() override;
 
 private:
     int m_counter = 0;
 
     OldCat::Font m_font;
-    OldCat::Texture m_buttonTexture;
+    OldCat::Texture m_backgroundTexture;
+    OldCat::Texture m_plantTexture;
 };
