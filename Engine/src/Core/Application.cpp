@@ -1,7 +1,7 @@
-#include <OldCat/Application.h>
+#include <OldCat/Core/Application.h>
 
 #include <OldCat/Detail/SDLContext.h>
-#include <OldCat/Game.h>
+#include <OldCat/Core/Game.h>
 
 namespace OldCat
 {

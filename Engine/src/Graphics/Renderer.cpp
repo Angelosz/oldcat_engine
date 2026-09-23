@@ -1,6 +1,6 @@
-#include <OldCat/Renderer.h>
-#include <OldCat/Window.h>
-#include <OldCat/Texture.h>
+#include <OldCat/Graphics/Renderer.h>
+#include <OldCat/Graphics/Texture.h>
+#include <OldCat/Platform/Window.h>
 
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>

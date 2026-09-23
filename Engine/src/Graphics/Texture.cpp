@@ -1,5 +1,5 @@
-#include <OldCat/Texture.h>
-#include <OldCat/Renderer.h>
+#include <OldCat/Graphics/Texture.h>
+#include <OldCat/Graphics/Renderer.h>
 
 #include <SDL3/SDL.h>
 

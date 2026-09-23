@@ -1,5 +1,5 @@
-#include <OldCat/Game.h>
-#include <OldCat/GameContext.h>
+#include <OldCat/Core/Game.h>
+#include <OldCat/Core/GameContext.h>
 
 namespace OldCat
 {

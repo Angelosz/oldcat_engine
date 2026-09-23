@@ -1,5 +1,5 @@
-#include <OldCat/AssetManager.h>
-#include <OldCat/Renderer.h>
+#include <OldCat/Assets/AssetManager.h>
+#include <OldCat/Graphics/Renderer.h>
 
 namespace OldCat
 {

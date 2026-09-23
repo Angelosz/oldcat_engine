@@ -1,7 +1,8 @@
-#include <OldCat/Font.h>
-#include <SDL3_ttf/SDL_ttf.h>
-#include <stdexcept>
+#include <OldCat/Graphics/Font.h>
 
+#include <SDL3_ttf/SDL_ttf.h>
+
+#include <stdexcept>
 #include <string>
 
 namespace OldCat

@@ -1,8 +1,8 @@
-#include <OldCat/GameContext.h>
+#include <OldCat/Core/GameContext.h>
 
-#include <OldCat/Renderer.h>
-#include <OldCat/Input.h>
-#include <OldCat/AssetManager.h>
+#include <OldCat/Graphics/Renderer.h>
+#include <OldCat/Input/Input.h>
+#include <OldCat/Assets/AssetManager.h>
 
 
 namespace OldCat

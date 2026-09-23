@@ -1,6 +1,6 @@
 #pragma once
 
-#include <OldCat/Texture.h>
+#include <OldCat/Graphics/Texture.h>
 
 namespace OldCat
 {

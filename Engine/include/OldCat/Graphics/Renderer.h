@@ -1,5 +1,5 @@
 #pragma once
-#include <OldCat/Font.h>
+#include <OldCat/Graphics/Font.h>
 
 struct SDL_Renderer;
 

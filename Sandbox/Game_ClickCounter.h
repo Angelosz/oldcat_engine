@@ -1,8 +1,8 @@
 #pragma once
 
-#include <OldCat/Game.h>
-#include <OldCat/Font.h>
-#include <OldCat/Texture.h>
+#include <OldCat/Core/Game.h>
+#include <OldCat/Graphics/Font.h>
+#include <OldCat/Graphics/Texture.h>
 
 namespace OldCat
 {

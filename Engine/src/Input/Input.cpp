@@ -1,4 +1,5 @@
-#include <OldCat/Input.h>
+#include <OldCat/Input/Input.h>
+
 #include <SDL3/SDL.h>
 
 namespace OldCat
