@@ -10,4 +10,9 @@ namespace OldCat
 	{
 		return Texture(m_renderer, path);
 	}
+
+	Texture AssetManager::loadTexture(const std::string& path)
+	{
+		return Texture(m_renderer, path.c_str());
+	}
 }

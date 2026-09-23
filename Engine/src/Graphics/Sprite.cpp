@@ -2,13 +2,8 @@
 
 namespace OldCat
 {
-	Sprite::Sprite(const char* texturePath, int xPosition, int yPosition, float width, float hight)
+	Sprite::Sprite(const std::string texturePath, int xPosition, int yPosition, float width, float hight)
 		: m_texturePath(texturePath), m_xPosition(xPosition), m_yPosition(yPosition) {
-	}
-
-	const char* Sprite::path()
-	{
-		return m_texturePath;
 	}
 
 	int Sprite::xPosition()

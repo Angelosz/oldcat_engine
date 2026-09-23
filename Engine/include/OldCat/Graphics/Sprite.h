@@ -8,20 +8,21 @@ namespace OldCat
 	{
 	public:
 		Sprite(
-			const char* path,
+			const std::string path,
 			int xPosition,
 			int yPosition,
 			float width,
-			float hight
+			float height
 		);
 
-		const char* path();
 		int xPosition();
 		int yPosition();
 
 	private:
-		const char* m_texturePath;
+		std::string m_texturePath;
 		int m_xPosition;
 		int m_yPosition;
+		int width;
+		int height;
 	};
 }

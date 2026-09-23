@@ -11,7 +11,7 @@ Plant::Plant(std::string name, OldCat::GameContext& context, OldCat::Sprite spri
 	: OldCat::Object(name, context), m_sprite(sprite)
 { }
 
-void Plant::render()
+/*void Plant::render()
 {
 	OldCat::Texture plantTexture = assetManager().loadTexture(m_sprite.path());
 
@@ -20,7 +20,7 @@ void Plant::render()
 		m_sprite.xPosition(),
 		m_sprite.yPosition()
 	);
-}
+}*/
 
 void Plant::update() { }
 

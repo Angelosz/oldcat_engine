@@ -10,7 +10,7 @@ add_library(OldCatEngine STATIC
     src/Assets/AssetManager.cpp
     src/Platform/Window.cpp
     src/Detail/SDLContext.cpp
-    src/Objects/Object.cpp
+    src/World/Object.cpp
 )
 
 target_include_directories(OldCatEngine

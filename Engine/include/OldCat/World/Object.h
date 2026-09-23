@@ -16,14 +16,9 @@ namespace OldCat
 		virtual ~Object() = default;
 
 		virtual void update() = 0;
-		virtual void render() = 0;
 
 	protected:
 		GameContext& context();
-
-		Renderer& renderer();
-		Input& input();
-		AssetManager& assetManager();
 
 	private:
 		std::string m_name;
