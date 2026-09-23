@@ -4,6 +4,8 @@
 #include <OldCat/Graphics/Font.h>
 #include <OldCat/Graphics/Texture.h>
 
+#include "Plant.h"
+
 namespace OldCat
 {
     class AssetManager;
@@ -24,5 +26,5 @@ private:
 
     OldCat::Font m_font;
     OldCat::Texture m_backgroundTexture;
-    OldCat::Texture m_plantTexture;
+    Plant m_plant;
 };
