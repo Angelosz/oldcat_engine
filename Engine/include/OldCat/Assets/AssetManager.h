@@ -3,6 +3,8 @@
 #include <OldCat/Graphics/Texture.h>
 
 #include <string>
+#include <unordered_map>
+#include <memory>
 
 namespace OldCat
 {
@@ -13,10 +15,11 @@ namespace OldCat
 	public:
 		explicit AssetManager(Renderer& renderer);
 
-		Texture loadTexture(const char* path);
-		Texture loadTexture(const std::string& path);
+		Texture& loadTexture(const char* path);
+		Texture& loadTexture(const std::string& path);
 
 	private:
 		Renderer& m_renderer;
+		std::unordered_map<std::string, std::unique_ptr<Texture>> m_textures;
 	};
 }

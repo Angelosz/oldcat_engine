@@ -4,11 +4,13 @@
 
 namespace OldCat
 {
+	class Texture;
+
 	class Sprite
 	{
 	public:
 		Sprite(
-			const std::string path,
+			Texture& texture,
 			int xPosition,
 			int yPosition,
 			float width,
@@ -17,12 +19,14 @@ namespace OldCat
 
 		int xPosition();
 		int yPosition();
+		int width();
+		int height();
 
 	private:
-		std::string m_texturePath;
+		Texture& m_texture;
 		int m_xPosition;
 		int m_yPosition;
-		int width;
-		int height;
+		int m_width;
+		int m_height;
 	};
 }

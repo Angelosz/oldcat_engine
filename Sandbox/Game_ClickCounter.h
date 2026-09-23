@@ -25,6 +25,6 @@ private:
     int m_counter = 0;
 
     OldCat::Font m_font;
-    OldCat::Texture m_backgroundTexture;
+    OldCat::Texture& m_backgroundTexture;
     Plant m_plant;
 };
