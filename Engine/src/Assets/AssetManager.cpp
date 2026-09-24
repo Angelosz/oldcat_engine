@@ -13,14 +13,15 @@ namespace OldCat
 
 	Texture& AssetManager::loadTexture(const std::string& path)
 	{
-		auto it = m_textures.find(path);
+		std::unordered_map<std::string, std::unique_ptr<Texture>>::iterator
+			it = m_textures.find(path);
 
 		if (it != m_textures.end())
 		{
 			return *it->second;
 		}
 
-		auto texture = std::make_unique<Texture>(m_renderer, path.c_str());
+		std::unique_ptr<Texture> texture = std::make_unique<Texture>(m_renderer, path.c_str());
 
 		Texture& textureReference = *texture;
 		

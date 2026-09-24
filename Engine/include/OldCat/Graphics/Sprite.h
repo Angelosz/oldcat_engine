@@ -1,5 +1,7 @@
 #pragma once
 
+#include <OldCat/Math/Rect.h>
+
 #include <string>
 
 namespace OldCat
@@ -11,22 +13,14 @@ namespace OldCat
 	public:
 		Sprite(
 			Texture& texture,
-			int xPosition,
-			int yPosition,
-			float width,
-			float height
+			Rect rect
 		);
 
-		int xPosition();
-		int yPosition();
-		int width();
-		int height();
+		Texture& texture();
+		Rect& rect();
 
 	private:
 		Texture& m_texture;
-		int m_xPosition;
-		int m_yPosition;
-		int m_width;
-		int m_height;
+		Rect m_rect;
 	};
 }

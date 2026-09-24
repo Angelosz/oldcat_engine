@@ -2,28 +2,17 @@
 
 namespace OldCat
 {
-	Sprite::Sprite(Texture& texture, int xPosition, int yPosition, float width, float height)
-		: m_texture(texture), m_xPosition(xPosition), m_yPosition(yPosition),
-		m_width(width), m_height(height)
+	Sprite::Sprite(Texture& texture, Rect rect)
+		: m_texture(texture), m_rect(rect)
 	{ }
 
-	int Sprite::xPosition()
+	Texture& Sprite::texture()
 	{
-		return m_xPosition;
+		return m_texture;
 	}
 
-	int Sprite::yPosition()
+	Rect& Sprite::rect()
 	{
-		return m_yPosition;
-	}
-
-	int Sprite::width()
-	{
-		return m_width;
-	}
-
-	int Sprite::height()
-	{
-		return m_height;
+		return m_rect;
 	}
 }
