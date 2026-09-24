@@ -7,6 +7,7 @@ namespace OldCat
 {
 	class Window;
 	class Texture;
+	class Sprite;
 
 	class Renderer
 	{
@@ -24,6 +25,7 @@ namespace OldCat
 
 		void drawText(const Font& font, const char* text, int x, int y);
 		void drawTexture(const Texture& texture, int x, int y);
+		void drawSprite(Sprite& sprite);
 
 	private:
 		SDL_Renderer* m_handle;
