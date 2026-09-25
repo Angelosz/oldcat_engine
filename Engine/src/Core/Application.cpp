@@ -33,7 +33,7 @@ namespace OldCat
 
 			m_renderer.clear();
 
-			game.render();
+			game.renderGame();
 
 			m_renderer.present();
 		}

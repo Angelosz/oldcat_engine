@@ -23,8 +23,8 @@ namespace OldCat
 		void clear();
 		void present();
 
-		void drawText(const Font& font, const char* text, int x, int y);
-		void drawTexture(const Texture& texture, int x, int y);
+		void drawText(const Font& font, const char* text, float x, float y);
+		void drawTexture(const Texture& texture, float x, float y);
 		void drawSprite(Sprite& sprite);
 
 	private:

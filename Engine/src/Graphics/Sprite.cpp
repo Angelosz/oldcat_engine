@@ -11,7 +11,7 @@ namespace OldCat
 		return m_texture;
 	}
 
-	Rect& Sprite::rect()
+	const Rect& Sprite::rect() const
 	{
 		return m_rect;
 	}

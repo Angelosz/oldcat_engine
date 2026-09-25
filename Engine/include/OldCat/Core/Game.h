@@ -18,6 +18,7 @@ namespace OldCat
 		virtual ~Game() = default;
 
 		void updateGame();
+		void renderGame();
 
 		virtual void update() = 0;
 		virtual void render() = 0;

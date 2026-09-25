@@ -9,11 +9,12 @@
 namespace OldCat
 {
 	class Object;
+	class GameContext;
 
 	class World
 	{
 	public:
-		World() = default;
+		World(GameContext& gameContext);
 		~World() = default;
 
 		World(const World&) = delete;
@@ -33,8 +34,10 @@ namespace OldCat
 		}
 
 		void update();
+		void render();
 
 	private:
 		std::vector<std::unique_ptr<Object>> m_objects;
+		GameContext& m_context;
 	};
 }

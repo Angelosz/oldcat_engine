@@ -6,13 +6,6 @@
 
 #include "Plant.h"
 
-namespace OldCat
-{
-    class AssetManager;
-    class Input;
-    class Renderer;
-}
-
 class Game_ClickCounter : public OldCat::Game
 {
 public:

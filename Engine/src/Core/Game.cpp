@@ -4,12 +4,18 @@
 namespace OldCat
 {
 	Game::Game(GameContext& gameContext)
-		: m_context(gameContext){ }
+		: m_context(gameContext), m_world(gameContext) { }
 
 	void Game::updateGame()
 	{
 		m_world.update();
 		update();
+	}
+
+	void Game::renderGame()
+	{
+		m_world.render();
+		render();
 	}
 
 	GameContext& Game::context()

@@ -14,7 +14,7 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext)
 	, m_font("assets/fonts/PressStart2P-Regular.ttf", 32.0f)
 	, m_backgroundTexture(gameContext.assetManager().loadTexture("assets/images/Background_720_1280.png"))
 {
-	m_plant = &spawn<Plant>("Plant", context(), OldCat::Sprite(assetManager().loadTexture("assets/images/plant_256.png"), OldCat::Rect((720 / 2) - (256 / 2), (1280 / 2) + 256, 256.0, 256.0)));
+	m_plant = &spawn<Plant>("Plant", context());
 }
 
 void Game_ClickCounter::update()
@@ -31,14 +31,12 @@ void Game_ClickCounter::render()
 
 	renderer().drawTexture(
 		m_backgroundTexture,
-		0, 0
+		0.0f, 0.0f
 	);
-
-	renderer().drawSprite(m_plant->sprite());
 
 	renderer().drawText(
 		m_font,
 		text.c_str(),
-		540 / 2 - (static_cast<float>(text.length()) * 32.0f) / 2.0f, 32
+		540.0f / 2.0f - (static_cast<float>(text.length()) * 32.0f) / 2.0f, 32.0f
 	);
 }

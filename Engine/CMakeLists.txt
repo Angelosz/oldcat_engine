@@ -13,7 +13,8 @@ add_library(OldCatEngine STATIC
     src/World/Object.cpp
     src/Math/Rect.cpp
     src/World/World.cpp
-)
+    src/Components/Components.cpp
+ "src/Components/RenderComponent.cpp" "include/OldCat/Components/SpriteComponent.h" "src/Components/SpriteComponent.cpp")
 
 target_include_directories(OldCatEngine
     PUBLIC

@@ -41,7 +41,7 @@ namespace OldCat
 		SDL_RenderPresent(m_handle);
 	}
 
-	void Renderer::drawText(const Font& font, const char* text, int x, int y)
+	void Renderer::drawText(const Font& font, const char* text, float x, float y)
 	{
 		SDL_Surface* surface = TTF_RenderText_Blended(font.m_handle, text, 0, SDL_Color{ 255, 255, 255, 255 });
 
@@ -60,8 +60,8 @@ namespace OldCat
 		}
 
 		SDL_FRect destination{
-			static_cast<float>(x),
-			static_cast<float>(y),
+			x,
+			y,
 			static_cast<float>(texture->w),
 			static_cast<float>(texture->h),
 		};
@@ -75,11 +75,11 @@ namespace OldCat
 
 		SDL_DestroyTexture(texture);
 	}
-	void Renderer::drawTexture(const Texture& texture, int x, int y)
+	void Renderer::drawTexture(const Texture& texture, float x, float y)
 	{
 		SDL_FRect destination{
-			static_cast<float>(x),
-			static_cast<float>(y),
+			x,
+			y,
 			texture.m_width,
 			texture.m_height
 		};
@@ -96,7 +96,7 @@ namespace OldCat
 
 	void Renderer::drawSprite(Sprite& sprite)
 	{
-		Rect& rect = sprite.rect();
+		const Rect& rect = sprite.rect();
 
 		SDL_FRect destination{
 			rect.x(),
