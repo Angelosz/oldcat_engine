@@ -12,6 +12,7 @@ add_library(OldCatEngine STATIC
     src/Detail/SDLContext.cpp
     src/World/Object.cpp
     src/Math/Rect.cpp
+    src/World/World.cpp
 )
 
 target_include_directories(OldCatEngine

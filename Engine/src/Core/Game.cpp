@@ -6,6 +6,11 @@ namespace OldCat
 	Game::Game(GameContext& gameContext)
 		: m_context(gameContext){ }
 
+	void Game::updateWorld()
+	{
+		m_world.update();
+	}
+
 	GameContext& Game::context()
 	{
 		return m_context;

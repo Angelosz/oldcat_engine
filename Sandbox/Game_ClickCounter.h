@@ -26,5 +26,6 @@ private:
 
     OldCat::Font m_font;
     OldCat::Texture& m_backgroundTexture;
-    Plant m_plant;
+
+    Plant* m_plant;
 };

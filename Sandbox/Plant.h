@@ -11,6 +11,8 @@ public:
 
 	void update() override;
 
+	OldCat::Sprite& sprite();
+
 private:
 	OldCat::Sprite m_sprite;
 };

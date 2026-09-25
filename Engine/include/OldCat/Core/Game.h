@@ -1,5 +1,9 @@
 #pragma	once
 
+#include <OldCat/World/World.h>
+
+#include <utility>
+
 namespace OldCat
 {
 	class Renderer;
@@ -16,6 +20,8 @@ namespace OldCat
 		virtual void update() = 0;
 		virtual void render() = 0;
 
+		void updateWorld();
+
 	protected:
 		GameContext& context();
 
@@ -23,7 +29,15 @@ namespace OldCat
 		Input& input();
 		AssetManager& assetManager();
 
+		template<typename T, typename... Args> T& spawn(Args&&... args)
+		{
+			return m_world.spawn<T>(
+				std::forward<Args>(args)...
+			);
+		}
+
 	private:
 		GameContext& m_context;
+		World m_world;
 	};
 }
