@@ -17,10 +17,10 @@ namespace OldCat
 		explicit Game(GameContext& gameContext);
 		virtual ~Game() = default;
 
+		void updateGame();
+
 		virtual void update() = 0;
 		virtual void render() = 0;
-
-		void updateWorld();
 
 	protected:
 		GameContext& context();

@@ -29,8 +29,7 @@ namespace OldCat
 				continue;
 			}
 
-			game.updateWorld();
-			game.update();
+			game.updateGame();
 
 			m_renderer.clear();
 
