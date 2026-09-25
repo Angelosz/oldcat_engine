@@ -5,6 +5,7 @@
 #include <OldCat/Input/Input.h>
 #include <OldCat/Graphics/Renderer.h>
 #include <OldCat/Math/Rect.h>
+#include <OldCat/World/SpriteObject.h>
 
 #include <iostream>
 #include <string>
@@ -14,6 +15,8 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext)
 	, m_font("assets/fonts/PressStart2P-Regular.ttf", 32.0f)
 	, m_backgroundTexture(gameContext.assetManager().loadTexture("assets/images/Background_720_1280.png"))
 {
+	spawn<OldCat::SpriteObject>("Background", context(), "assets/images/Background_720_1280.png", OldCat::Rect(0.0f, 0.0f, 720.0f, 1280.0f));
+
 	m_plant = &spawn<Plant>("Plant", context());
 }
 
@@ -28,11 +31,6 @@ void Game_ClickCounter::update()
 void Game_ClickCounter::render()
 {
 	std::string text = "Clicks: " + std::to_string(m_counter);
-
-	renderer().drawTexture(
-		m_backgroundTexture,
-		0.0f, 0.0f
-	);
 
 	renderer().drawText(
 		m_font,
