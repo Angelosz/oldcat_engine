@@ -1,5 +1,7 @@
 #include <OldCat/Components/SpriteComponent.h>
 #include <OldCat/Graphics/Renderer.h>
+#include <OldCat/World/Object.h>
+#include <OldCat/World/Transform.h>
 
 namespace OldCat
 {
@@ -9,11 +11,12 @@ namespace OldCat
 	void SpriteComponent::render(Renderer& renderer)
 	{
 		const Rect& rect = m_sprite.rect();
+		const Transform& transform = owner().transform();
 
 		renderer.drawTexture(
 			m_sprite.texture(),
-			rect.x(),
-			rect.y()
+			transform.x + rect.x(),
+			transform.y + rect.y()
 		);
 	}
 

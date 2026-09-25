@@ -16,7 +16,7 @@ namespace OldCat
 			Rect rect
 		);
 
-		Texture& texture();
+		const Texture& texture() const;
 		const Rect& rect() const;
 
 	private:

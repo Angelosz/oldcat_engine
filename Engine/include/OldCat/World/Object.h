@@ -1,6 +1,7 @@
 #pragma once
 
 #include <OldCat/Components/Component.h>
+#include <OldCat/World/Transform.h>
 
 #include <memory>
 #include <utility>
@@ -17,10 +18,14 @@ namespace OldCat
 	class Object
 	{
 	public:
-		explicit Object(std::string name, GameContext& context);
+		explicit Object(std::string name, GameContext& context, Transform transform);
 		virtual ~Object() = default;
 
 		virtual void update() = 0;
+
+		Transform& transform();
+		const Transform& transform() const;
+
 
 		template<typename T, typename... Args>
 		T& addComponent(Args&&... args)
@@ -60,6 +65,7 @@ namespace OldCat
 	private:
 		std::string m_name;
 		GameContext& m_context;
+		OldCat::Transform m_transform;
 
 		std::vector<std::unique_ptr<Component>> m_components;
 	};

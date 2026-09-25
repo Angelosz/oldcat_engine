@@ -6,7 +6,7 @@ namespace OldCat
 		: m_texture(texture), m_rect(rect)
 	{ }
 
-	Texture& Sprite::texture()
+	const Texture& Sprite::texture() const
 	{
 		return m_texture;
 	}

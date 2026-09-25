@@ -8,14 +8,14 @@
 
 
 
-Plant::Plant(std::string name, OldCat::GameContext& context)
-	: OldCat::Object(std::move(name), context)
+Plant::Plant(std::string name, OldCat::GameContext& context, OldCat::Transform transform)
+	: OldCat::Object(std::move(name), context, transform)
 {
 	addComponent<OldCat::SpriteComponent>(
 		context.assetManager().loadTexture("assets/images/plant_256.png"),
 		OldCat::Rect(
-			(720 / 2) - (256 / 2),
-			(1280 / 2) + 256,
+			-128,
+			-128,
 			256.0f,
 			256.0f
 		)

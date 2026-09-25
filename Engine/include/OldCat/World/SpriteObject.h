@@ -10,7 +10,8 @@ namespace OldCat
 	class SpriteObject : public OldCat::Object
 	{
 	public:
-		explicit SpriteObject(std::string name, OldCat::GameContext& context, const char* path, OldCat::Rect rect);
+		explicit SpriteObject(std::string name, OldCat::GameContext& context, Transform transform,
+			const char* path, OldCat::Rect rect);
 
 		void update() override;
 

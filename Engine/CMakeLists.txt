@@ -17,7 +17,7 @@ add_library(OldCatEngine STATIC
     src/Components/RenderComponent.cpp
     src/Components/SpriteComponent.cpp
     src/World/SpriteObject.cpp
-)
+ "include/OldCat/World/Transform.h")
 
 target_include_directories(OldCatEngine
     PUBLIC

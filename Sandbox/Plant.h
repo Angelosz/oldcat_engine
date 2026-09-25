@@ -6,7 +6,7 @@
 class Plant : public OldCat::Object
 {
 public:
-	explicit Plant(std::string name, OldCat::GameContext& context);
+	explicit Plant(std::string name, OldCat::GameContext& context, OldCat::Transform transform);
 
 	void update() override;
 private:
