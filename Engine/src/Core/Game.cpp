@@ -6,11 +6,11 @@ namespace OldCat
 	Game::Game(GameContext& gameContext)
 		: m_context(gameContext), m_world(gameContext), m_ui(gameContext) { }
 
-	void Game::updateGame()
+	void Game::updateGame(float deltaTime)
 	{
-		m_world.update();
-		update();
-		updateUI();
+		m_world.update(deltaTime);
+		update(deltaTime);
+		updateUI(deltaTime);
 	}
 
 	void Game::renderGame()
@@ -20,9 +20,9 @@ namespace OldCat
 		renderUI();
 	}
 
-	void Game::updateUI()
+	void Game::updateUI(float deltaTime)
 	{
-		m_ui.update();
+		m_ui.update(deltaTime);
 	}
 
 	void Game::renderUI()

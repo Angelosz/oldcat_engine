@@ -21,20 +21,19 @@ namespace OldCat
 
 		while (running)
 		{
-			m_input.processEvents();
+			m_time.update();
 
+			m_input.processEvents();
 			if (m_input.quitRequested())
 			{
 				running = false;
 				continue;
 			}
 
-			game.updateGame();
+			game.updateGame(m_time.deltaTime());
 
 			m_renderer.clear();
-
 			game.renderGame();
-
 			m_renderer.present();
 		}
 	}

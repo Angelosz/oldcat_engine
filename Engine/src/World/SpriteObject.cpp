@@ -18,5 +18,5 @@ namespace OldCat
 		);
 	}
 
-	void SpriteObject::update() { }
+	void SpriteObject::update(float deltaTime) { }
 }

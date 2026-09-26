@@ -52,6 +52,6 @@ void Game_ClickCounter::increaseCounter()
 	m_clicksText->setText("Clicks: " + std::to_string(m_counter));
 }
 
-void Game_ClickCounter::update() {}
+void Game_ClickCounter::update(float deltaTime) {}
 
 void Game_ClickCounter::render() {}

@@ -15,7 +15,7 @@ namespace OldCat
 		explicit Widget(GameContext& context, Vector2 position);
 		virtual ~Widget() = default;
 
-		virtual void update() = 0;
+		virtual void update(float deltaTime) = 0;
 		virtual void render() = 0;
 
 		Vector2 position();

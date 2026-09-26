@@ -18,13 +18,13 @@ namespace OldCat
 		explicit Game(GameContext& gameContext);
 		virtual ~Game() = default;
 
-		void updateGame();
+		void updateGame(float deltaTime);
 		void renderGame();
 
-		virtual void update() = 0;
+		virtual void update(float deltaTime) = 0;
 		virtual void render() = 0;
 
-		void updateUI();
+		void updateUI(float deltaTime);
 		void renderUI();
 
 	protected:

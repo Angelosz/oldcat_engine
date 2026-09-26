@@ -32,7 +32,7 @@ Plant::Plant(std::string name, OldCat::GameContext& context, OldCat::Transform t
 	);
 }
 
-void Plant::update()
+void Plant::update(float deltaTime)
 {
 	if (const auto* collider = getComponent<OldCat::ColliderComponent>())
 	{

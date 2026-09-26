@@ -11,7 +11,7 @@ class Game_ClickCounter : public OldCat::Game
 public:
     explicit Game_ClickCounter(OldCat::GameContext& gameContext);
 
-    void update() override;
+    void update(float deltaTime) override;
     void render() override;
 
 private:

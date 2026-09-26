@@ -22,7 +22,7 @@ namespace OldCat
 		explicit Object(std::string name, GameContext& context, Transform transform);
 		virtual ~Object() = default;
 
-		virtual void update() = 0;
+		virtual void update(float deltaTime) = 0;
 
 		Transform& transform();
 		const Transform& transform() const;

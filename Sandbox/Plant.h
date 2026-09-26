@@ -8,6 +8,6 @@ class Plant : public OldCat::Object
 public:
 	explicit Plant(std::string name, OldCat::GameContext& context, OldCat::Transform transform);
 
-	void update() override;
+	void update(float deltaTime) override;
 private:
 };

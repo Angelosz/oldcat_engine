@@ -9,11 +9,11 @@ namespace OldCat
 	World::World(GameContext& gameContext)
 		: m_context(gameContext) { }
 
-	void World::update()
+	void World::update(float deltaTime)
 	{
 		for (auto& object : m_objects)
 		{
-			object->update();
+			object->update(deltaTime);
 		}
 	}
 

@@ -33,7 +33,7 @@ namespace OldCat
 			return reference;
 		}
 
-		void update();
+		void update(float deltaTime);
 		void render();
 
 	private:

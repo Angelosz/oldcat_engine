@@ -33,7 +33,7 @@ namespace OldCat
 			return objectReference;
 		}
 
-		void update();
+		void update(float deltaTime);
 		void render();
 
 	private:

@@ -22,6 +22,7 @@ add_library(OldCatEngine STATIC
     src/Components/ColliderComponent.cpp
     src/UI/Text.cpp
     src/Events/EventDispatcher.cpp
+    src/Core/Time.cpp
 )
 
 target_include_directories(OldCatEngine

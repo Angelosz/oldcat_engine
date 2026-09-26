@@ -8,7 +8,7 @@ namespace OldCat
 	Text::Text(GameContext& gameContext, Vector2 position, Font& font, std::string text)
 		: OldCat::Widget(gameContext, position), m_font(font), m_text(std::move(text)) { }
 
-	void Text::update() { }
+	void Text::update(float deltaTime) { }
 
 	void Text::render()
 	{
