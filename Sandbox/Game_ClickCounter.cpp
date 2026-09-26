@@ -31,6 +31,13 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext) : OldCat:
 		Transform{ Vector2(360.0f, 1024.0f) }
 	);
 
+	m_plant->events().onClicked(
+		[this]()
+		{
+			increaseCounter();
+		}
+	);
+
 	m_clicksText = &addWidget<OldCat::Text>(
 		Vector2{ 32.0f, 32.0f },
 		m_font,

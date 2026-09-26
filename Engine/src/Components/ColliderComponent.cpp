@@ -1,5 +1,6 @@
 #include <OldCat/Components/ColliderComponent.h>
 
+#include <OldCat/Input/Input.h>
 #include <OldCat/World/Object.h>
 #include <OldCat/World/Transform.h>
 
@@ -24,5 +25,11 @@ namespace OldCat
 			&& point.x <= leftBorder + m_rect.width()
 			&& point.y >= topBorder
 			&& point.y <= topBorder + m_rect.height();
+	}
+
+	bool ColliderComponent::wasClicked(const Input& input) const
+	{
+		return input.wasMouseButtonPressed(MouseButton::Left)
+			&& contains(input.mousePosition());
 	}
 }

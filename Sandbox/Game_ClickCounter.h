@@ -14,8 +14,6 @@ public:
     void update() override;
     void render() override;
 
-    void increaseCounter();
-
 private:
     int m_counter = 0;
 
@@ -23,4 +21,6 @@ private:
     OldCat::Text* m_clicksText = nullptr;
 
     Plant* m_plant = nullptr;
+
+    void increaseCounter();
 };

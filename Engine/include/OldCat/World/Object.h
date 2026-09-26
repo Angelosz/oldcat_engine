@@ -1,6 +1,7 @@
 #pragma once
 
 #include <OldCat/Components/Component.h>
+#include <OldCat/Events/EventDispatcher.h>
 #include <OldCat/World/Transform.h>
 
 #include <memory>
@@ -26,6 +27,7 @@ namespace OldCat
 		Transform& transform();
 		const Transform& transform() const;
 
+		EventDispatcher& events();
 
 		template<typename T, typename... Args>
 		T& addComponent(Args&&... args)
@@ -72,5 +74,7 @@ namespace OldCat
 		OldCat::Transform m_transform;
 
 		std::vector<std::unique_ptr<Component>> m_components;
+
+		EventDispatcher m_events;
 	};
 }

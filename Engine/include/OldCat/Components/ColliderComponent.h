@@ -5,6 +5,8 @@
 
 namespace OldCat
 {
+	class Input;
+
 	class ColliderComponent : public OldCat::Component
 	{
 	public:
@@ -13,6 +15,7 @@ namespace OldCat
 		const Rect& rect() const;
 
 		bool contains(Vector2 point) const;
+		bool wasClicked(const Input& input) const;
 
 	private:
 		Rect  m_rect;

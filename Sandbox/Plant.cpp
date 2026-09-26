@@ -34,17 +34,11 @@ Plant::Plant(std::string name, OldCat::GameContext& context, OldCat::Transform t
 
 void Plant::update()
 {
-	if (input().wasMouseButtonPressed(OldCat::MouseButton::Left))
+	if (const auto* collider = getComponent<OldCat::ColliderComponent>())
 	{
-		const Vector2& mousePosition = input().mousePosition();
-
-		if (const auto* collider = getComponent<OldCat::ColliderComponent>())
+		if (collider->wasClicked(input()))
 		{
-
-			if (collider->contains(mousePosition))
-			{
-				std::cout << "Plant was clicked!!" << '\n';
-			}
+			events().clicked();
 		}
 	}
 }

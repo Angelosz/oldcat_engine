@@ -10,26 +10,11 @@ namespace OldCat
 	Object::Object(std::string name, GameContext& context, Transform transform)
 		: m_name(name), m_context(context), m_transform(transform) { }
 
-
-	GameContext& Object::context()
+	EventDispatcher& Object::events()
 	{
-		return m_context;
+		return m_events;
 	}
-
-	AssetManager& Object::assetManager()
-	{
-		return m_context.assetManager();
-	}
-
-	Input& Object::input()
-	{
-		return m_context.input();
-	}
-
-	Renderer& Object::renderer()
-	{
-		return m_context.renderer();
-	}
+	
 
 	const std::string& Object::name() const
 	{
@@ -49,5 +34,25 @@ namespace OldCat
 	const std::vector<std::unique_ptr<Component>>& Object::getComponents() const
 	{
 		return m_components;
+	}
+
+	GameContext& Object::context()
+	{
+		return m_context;
+	}
+
+	AssetManager& Object::assetManager()
+	{
+		return m_context.assetManager();
+	}
+
+	Input& Object::input()
+	{
+		return m_context.input();
+	}
+
+	Renderer& Object::renderer()
+	{
+		return m_context.renderer();
 	}
 }
