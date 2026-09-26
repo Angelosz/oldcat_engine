@@ -62,6 +62,10 @@ namespace OldCat
 	protected:
 		GameContext& context();
 
+		AssetManager& assetManager();
+		Input& input();
+		Renderer& renderer();
+
 	private:
 		std::string m_name;
 		GameContext& m_context;

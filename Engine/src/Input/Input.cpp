@@ -15,29 +15,41 @@ namespace OldCat
 		{
 			switch (event.type)
 			{
-			case SDL_EVENT_QUIT:
-				m_quitRequested = true;
-				break;
-
-			case SDL_EVENT_MOUSE_BUTTON_DOWN:
-			{
-
-				switch (event.button.button)
+				case SDL_EVENT_QUIT:
 				{
-				case SDL_BUTTON_LEFT:
-					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Left)] = true;
-					break;
-
-				case SDL_BUTTON_MIDDLE:
-					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Middle)] = true;
-					break;
-
-				case SDL_BUTTON_RIGHT:
-					m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Right)] = true;
+					m_quitRequested = true;
 					break;
 				}
-				break;
-			}}
+
+				case SDL_EVENT_MOUSE_BUTTON_DOWN:
+				{
+
+					switch (event.button.button)
+					{
+					case SDL_BUTTON_LEFT:
+						m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Left)] = true;
+						break;
+
+					case SDL_BUTTON_MIDDLE:
+						m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Middle)] = true;
+						break;
+
+					case SDL_BUTTON_RIGHT:
+						m_mouseButtonPressed[static_cast<std::size_t>(MouseButton::Right)] = true;
+						break;
+					}
+
+					m_mousePosition = Vector2(event.button.x, event.button.y);
+
+					break;
+				}
+
+				case SDL_EVENT_MOUSE_MOTION:
+				{
+					m_mousePosition = Vector2(event.button.x, event.button.y);
+					break;
+				}
+			}
 		}
 	}
 

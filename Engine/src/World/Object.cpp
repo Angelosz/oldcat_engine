@@ -16,6 +16,21 @@ namespace OldCat
 		return m_context;
 	}
 
+	AssetManager& Object::assetManager()
+	{
+		return m_context.assetManager();
+	}
+
+	Input& Object::input()
+	{
+		return m_context.input();
+	}
+
+	Renderer& Object::renderer()
+	{
+		return m_context.renderer();
+	}
+
 	const std::string& Object::name() const
 	{
 		return m_name;

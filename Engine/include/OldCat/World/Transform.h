@@ -6,14 +6,14 @@ namespace OldCat
 {
 	struct Transform
 	{
-		Vector2 position = Vector2(0.0f, 0.0f);
+		Vector2 position;
 
-		const float x() const
+		float x() const
 		{
 			return position.x;
 		}
 
-		const float y() const
+		float y() const
 		{
 			return position.y;
 		}
