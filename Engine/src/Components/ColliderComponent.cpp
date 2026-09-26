@@ -13,16 +13,16 @@ namespace OldCat
 		return m_rect;
 	}
 
-	bool ColliderComponent::contains(float x, float y) const
+	bool ColliderComponent::contains(Vector2 point) const
 	{
 		const Transform& transform = owner().transform();
 
-		const float leftBorder = transform.x + m_rect.x();
-		const float topBorder = transform.y + m_rect.y();
+		const float leftBorder = transform.x() + m_rect.x();
+		const float topBorder = transform.y() + m_rect.y();
 
-		return x >= leftBorder
-			&& x <= leftBorder + m_rect.width()
-			&& y >= topBorder
-			&& y <= topBorder + m_rect.height();
+		return point.x >= leftBorder
+			&& point.x <= leftBorder + m_rect.width()
+			&& point.y >= topBorder
+			&& point.y <= topBorder + m_rect.height();
 	}
 }

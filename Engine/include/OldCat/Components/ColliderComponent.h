@@ -12,7 +12,7 @@ namespace OldCat
 
 		const Rect& rect() const;
 
-		bool contains(float x, float y) const;
+		bool contains(Vector2 point) const;
 
 	private:
 		Rect  m_rect;

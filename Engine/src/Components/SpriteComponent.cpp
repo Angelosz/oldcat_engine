@@ -15,8 +15,8 @@ namespace OldCat
 
 		renderer.drawTexture(
 			m_sprite.texture(),
-			transform.x + rect.x(),
-			transform.y + rect.y()
+			transform.x() + rect.x(),
+			transform.y() + rect.y()
 		);
 	}
 

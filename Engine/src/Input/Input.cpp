@@ -51,5 +51,8 @@ namespace OldCat
 		return m_mouseButtonPressed[static_cast<std::size_t>(button)];
 	}
 
-
+	Vector2 Input::mousePosition() const
+	{
+		return m_mousePosition;
+	}
 }

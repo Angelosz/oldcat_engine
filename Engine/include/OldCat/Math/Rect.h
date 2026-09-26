@@ -1,23 +1,26 @@
 #pragma once
 
+#include <OldCat/Math/Vector2.h>
+
 namespace OldCat
 {
 	class Rect
 	{
 	public:
-		Rect(float x, float y, float width, float height);
+		Rect(Vector2 position, Vector2 size);
 
 		float x() const;
 		float y() const;
 		float width() const;
 		float height() const;
 
-		bool contains(float x, float y) const;
+		const Vector2 position() const;
+		const Vector2 size() const;
+
+		bool contains(Vector2 point) const;
 
 	private:
-		float m_x;
-		float m_y;
-		float m_width;
-		float m_height;
+		Vector2 m_position;
+		Vector2 m_size;
 	};
 }

@@ -2,9 +2,9 @@
 
 #include <OldCat/Core/GameContext.h>
 #include <OldCat/Assets/AssetManager.h>
-#include <OldCat/Input/Input.h>
 #include <OldCat/Graphics/Renderer.h>
 #include <OldCat/Math/Rect.h>
+#include <OldCat/Input/Input.h>
 #include <OldCat/World/SpriteObject.h>
 #include <OldCat/World/Transform.h>
 
@@ -16,9 +16,9 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext)
 	, m_font("assets/fonts/PressStart2P-Regular.ttf", 32.0f)
 	, m_backgroundTexture(gameContext.assetManager().loadTexture("assets/images/Background_720_1280.png"))
 {
-	spawn<OldCat::SpriteObject>("Background", context(), OldCat::Transform{ 0, 0 }, "assets/images/Background_720_1280.png", OldCat::Rect(0.0f, 0.0f, 720.0f, 1280.0f));
+	spawn<OldCat::SpriteObject>("Background", context(), OldCat::Transform{ OldCat::Vector2(0.0f, 0.0f) }, "assets/images/Background_720_1280.png", OldCat::Rect(OldCat::Vector2(0.0f, 0.0f), OldCat::Vector2(720.0f, 1280.0f)));
 
-	m_plant = &spawn<Plant>("Plant", context(), OldCat::Transform{360.0f, 1024.0f});
+	m_plant = &spawn<Plant>("Plant", context(), OldCat::Transform{ OldCat::Vector2(360.0f, 1024.0f) });
 }
 
 void Game_ClickCounter::update()
