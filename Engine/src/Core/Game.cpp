@@ -4,18 +4,30 @@
 namespace OldCat
 {
 	Game::Game(GameContext& gameContext)
-		: m_context(gameContext), m_world(gameContext) { }
+		: m_context(gameContext), m_world(gameContext), m_ui(gameContext) { }
 
 	void Game::updateGame()
 	{
 		m_world.update();
 		update();
+		updateUI();
 	}
 
 	void Game::renderGame()
 	{
 		m_world.render();
 		render();
+		renderUI();
+	}
+
+	void Game::updateUI()
+	{
+		m_ui.update();
+	}
+
+	void Game::renderUI()
+	{
+		m_ui.render();
 	}
 
 	GameContext& Game::context()
@@ -32,6 +44,7 @@ namespace OldCat
 	{
 		return m_context.input();
 	}
+
 
 	AssetManager& Game::assetManager()
 	{

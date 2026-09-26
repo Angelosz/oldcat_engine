@@ -1,6 +1,7 @@
 #pragma	once
 
 #include <OldCat/World/World.h>
+#include <OldCat/UI/UI.h>
 
 #include <utility>
 
@@ -23,6 +24,9 @@ namespace OldCat
 		virtual void update() = 0;
 		virtual void render() = 0;
 
+		void updateUI();
+		void renderUI();
+
 	protected:
 		GameContext& context();
 
@@ -37,8 +41,17 @@ namespace OldCat
 			);
 		}
 
+		template<typename T, typename... Args>
+		T& addWidget(Args&&... args)
+		{
+			return m_ui.addWidget<T>(
+				std::forward<Args>(args)...
+			);
+		}
+
 	private:
 		GameContext& m_context;
 		World m_world;
+		UI m_ui;
 	};
 }

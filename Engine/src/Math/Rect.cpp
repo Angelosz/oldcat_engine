@@ -1,4 +1,5 @@
 #include <OldCat/Math/Rect.h>
+#include "Widget.h"
 
 namespace OldCat
 {
