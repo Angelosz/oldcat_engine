@@ -10,15 +10,17 @@ add_library(OldCatEngine STATIC
     src/Assets/AssetManager.cpp
     src/Platform/Window.cpp
     src/Detail/SDLContext.cpp
-    src/World/Object.cpp
     src/Math/Rect.cpp
+    src/UI/UI.cpp
+    src/UI/Widget.cpp
+    src/World/Object.cpp
     src/World/World.cpp
     src/World/SpriteObject.cpp
     src/Components/Components.cpp
     src/Components/RenderComponent.cpp
     src/Components/SpriteComponent.cpp
     src/Components/ColliderComponent.cpp
- "include/OldCat/UI/Widget.h"  "include/OldCat/UI/UI.h" "src/UI/UI.cpp" "src/UI/Widget.cpp")
+)
 
 target_include_directories(OldCatEngine
     PUBLIC
