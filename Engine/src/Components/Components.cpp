@@ -9,4 +9,9 @@ namespace OldCat
 	{
 		return m_owner;
 	}
+
+	const Object& Component::owner() const
+	{
+		return m_owner;
+	}
 }

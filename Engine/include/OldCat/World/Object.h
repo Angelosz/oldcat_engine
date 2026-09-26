@@ -49,7 +49,7 @@ namespace OldCat
 			{
 				if (T* result = dynamic_cast<T*>(component.get()))
 				{
-					return *result;
+					return result;
 				}
 			}
 			

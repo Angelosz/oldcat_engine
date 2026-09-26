@@ -14,6 +14,7 @@ namespace OldCat
 		Component& operator=(const Component&) = delete;
 
 		Object& owner();
+		const Object& owner() const;
 
 	private:
 		Object& m_owner;
