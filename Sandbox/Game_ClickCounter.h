@@ -2,7 +2,7 @@
 
 #include <OldCat/Core/Game.h>
 #include <OldCat/Graphics/Font.h>
-#include <OldCat/Graphics/Texture.h>
+#include <OldCat/UI/Text.h>
 
 #include "Plant.h"
 
@@ -14,11 +14,13 @@ public:
     void update() override;
     void render() override;
 
+    void increaseCounter();
+
 private:
     int m_counter = 0;
 
     OldCat::Font m_font;
-    OldCat::Texture& m_backgroundTexture;
+    OldCat::Text* m_clicksText = nullptr;
 
-    Plant* m_plant;
+    Plant* m_plant = nullptr;
 };

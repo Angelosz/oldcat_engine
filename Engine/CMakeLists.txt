@@ -20,6 +20,7 @@ add_library(OldCatEngine STATIC
     src/Components/RenderComponent.cpp
     src/Components/SpriteComponent.cpp
     src/Components/ColliderComponent.cpp
+    src/UI/Text.cpp
 )
 
 target_include_directories(OldCatEngine
