@@ -5,9 +5,13 @@
 
 namespace OldCat
 {
-	OldCat::Application::Application()
+	OldCat::Application::Application(const char* appName, OldCat::Vector2 windowSize)
 		: m_sdl(std::make_unique<SDLContext>())
-		, m_window("OldCat Engine", 720, 1280)
+		, m_window(
+			appName,
+			static_cast<int>(windowSize.x),
+			static_cast<int>(windowSize.y)
+		)
 		, m_renderer(m_window)
 		, m_input()
 		, m_assetManager(m_renderer)
