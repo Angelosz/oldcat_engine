@@ -8,7 +8,7 @@
 int main()
 {
     try {
-        OldCat::Application app;
+        OldCat::Application app("Click Counter", OldCat::Vector2(720.0f, 1280.0f));
         Game_ClickCounter game(app.context());
 
         app.run(game);

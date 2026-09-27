@@ -3,11 +3,12 @@
 #include <memory>
 
 #include <OldCat/Assets/AssetManager.h>
+#include <OldCat/Graphics/Renderer.h>
+#include <OldCat/Platform/Window.h>
+#include <OldCat/Input/Input.h>
+#include <OldCat/Math/Vector2.h>
 #include <OldCat/Core/GameContext.h>
 #include <OldCat/Core/Time.h>
-#include <OldCat/Graphics/Renderer.h>
-#include <OldCat/Input/Input.h>
-#include <OldCat/Platform/Window.h>
 
 
 namespace OldCat
@@ -18,7 +19,7 @@ namespace OldCat
 	class Application
 	{
 	public:
-		Application();
+		Application(const char* appName, OldCat::Vector2 windowSize);
 		~Application();
 
 		Application(const Application&) = delete;
