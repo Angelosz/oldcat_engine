@@ -1,7 +1,7 @@
 add_executable(OldCatSandbox
     main.cpp
     Game_ClickCounter.cpp
-)
+ "Plant.h" "Plant.cpp")
 
 target_link_libraries(OldCatSandbox
     PRIVATE

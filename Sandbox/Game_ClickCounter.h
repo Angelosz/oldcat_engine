@@ -1,28 +1,26 @@
 #pragma once
 
-#include <OldCat/Game.h>
-#include <OldCat/Font.h>
-#include <OldCat/Texture.h>
+#include <OldCat/Core/Game.h>
+#include <OldCat/Graphics/Font.h>
+#include <OldCat/UI/Text.h>
 
-namespace OldCat
-{
-    class AssetManager;
-    class Input;
-    class Renderer;
-}
+#include "Plant.h"
 
 class Game_ClickCounter : public OldCat::Game
 {
 public:
     explicit Game_ClickCounter(OldCat::GameContext& gameContext);
 
-    void update() override;
+    void update(float deltaTime) override;
     void render() override;
 
 private:
     int m_counter = 0;
 
     OldCat::Font m_font;
-    OldCat::Texture m_backgroundTexture;
-    OldCat::Texture m_plantTexture;
+    OldCat::Text* m_clicksText = nullptr;
+
+    Plant* m_plant = nullptr;
+
+    void increaseCounter();
 };

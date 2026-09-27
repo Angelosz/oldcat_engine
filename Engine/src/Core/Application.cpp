@@ -1,7 +1,7 @@
-#include <OldCat/Application.h>
+#include <OldCat/Core/Application.h>
 
 #include <OldCat/Detail/SDLContext.h>
-#include <OldCat/Game.h>
+#include <OldCat/Core/Game.h>
 
 namespace OldCat
 {
@@ -21,20 +21,19 @@ namespace OldCat
 
 		while (running)
 		{
-			m_input.processEvents();
+			m_time.update();
 
+			m_input.processEvents();
 			if (m_input.quitRequested())
 			{
 				running = false;
 				continue;
 			}
 
-			game.update();
+			game.updateGame(m_time.deltaTime());
 
 			m_renderer.clear();
-
-			game.render();
-
+			game.renderGame();
 			m_renderer.present();
 		}
 	}

@@ -2,11 +2,13 @@
 
 #include <memory>
 
-#include <OldCat/Window.h>
-#include <OldCat/Input.h>
-#include <OldCat/Renderer.h>
-#include <OldCat/AssetManager.h>
-#include <OldCat/GameContext.h>
+#include <OldCat/Assets/AssetManager.h>
+#include <OldCat/Core/GameContext.h>
+#include <OldCat/Core/Time.h>
+#include <OldCat/Graphics/Renderer.h>
+#include <OldCat/Input/Input.h>
+#include <OldCat/Platform/Window.h>
+
 
 namespace OldCat
 {
@@ -34,5 +36,6 @@ namespace OldCat
 		AssetManager m_assetManager;
 
 		GameContext m_context;
+		Time m_time;
 	};
 }

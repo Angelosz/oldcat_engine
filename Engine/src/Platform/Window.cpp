@@ -1,5 +1,7 @@
-#include <OldCat/Window.h>
+#include <OldCat/Platform/Window.h>
+
 #include <SDL3/SDL.h>
+
 #include <stdexcept>
 
 namespace OldCat

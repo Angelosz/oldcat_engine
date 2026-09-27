@@ -1,6 +1,8 @@
-#include <OldCat/Renderer.h>
-#include <OldCat/Window.h>
-#include <OldCat/Texture.h>
+#include <OldCat/Graphics/Renderer.h>
+#include <OldCat/Graphics/Texture.h>
+#include <OldCat/Graphics/Sprite.h>
+#include <OldCat/Platform/Window.h>
+#include <OldCat/Math/Rect.h>
 
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
@@ -39,11 +41,9 @@ namespace OldCat
 		SDL_RenderPresent(m_handle);
 	}
 
-	void Renderer::drawText(const Font& font, const char* text, int x, int y)
+	void Renderer::drawText(const Font& font, const char* text, float x, float y)
 	{
-		SDL_Color color{ 255, 255, 255, 255 };
-
-		SDL_Surface* surface = TTF_RenderText_Blended(font.m_handle, text, 0, color);
+		SDL_Surface* surface = TTF_RenderText_Blended(font.m_handle, text, 0, SDL_Color{ 255, 255, 255, 255 });
 
 		if (surface == nullptr)
 		{
@@ -60,8 +60,8 @@ namespace OldCat
 		}
 
 		SDL_FRect destination{
-			static_cast<float>(x),
-			static_cast<float>(y),
+			x,
+			y,
 			static_cast<float>(texture->w),
 			static_cast<float>(texture->h),
 		};
@@ -75,11 +75,11 @@ namespace OldCat
 
 		SDL_DestroyTexture(texture);
 	}
-	void Renderer::drawTexture(const Texture& texture, int x, int y)
+	void Renderer::drawTexture(const Texture& texture, float x, float y)
 	{
 		SDL_FRect destination{
-			static_cast<float>(x),
-			static_cast<float>(y),
+			x,
+			y,
 			texture.m_width,
 			texture.m_height
 		};
@@ -92,5 +92,24 @@ namespace OldCat
 		{
 			throw std::runtime_error(SDL_GetError());
 		}
+	}
+
+	void Renderer::drawSprite(Sprite& sprite)
+	{
+		const Rect& rect = sprite.rect();
+
+		SDL_FRect destination{
+			rect.x(),
+			rect.y(),
+			rect.width(),
+			rect.height()
+		};
+
+		SDL_RenderTexture(
+			m_handle,
+			sprite.texture().m_handle,
+			nullptr,
+			&destination
+		);
 	}
 }
