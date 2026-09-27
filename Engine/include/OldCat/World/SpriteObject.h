@@ -11,7 +11,7 @@ namespace OldCat
 	{
 	public:
 		explicit SpriteObject(std::string name, OldCat::GameContext& context, Transform transform,
-			const char* path, OldCat::Rect rect);
+			const char* texturePath, OldCat::Rect spriteRect);
 
 		void update(float deltaTime) override;
 

@@ -1,6 +1,6 @@
 #include <OldCat/Core/Application.h>
 
-#include "Game_ClickCounter.h"
+#include "tinydungeon_src/Game_TinyDungeon.h"
 
 #include <exception>
 #include <iostream>
@@ -8,8 +8,8 @@
 int main()
 {
     try {
-        OldCat::Application app("Click Counter", OldCat::Vector2(720.0f, 1280.0f));
-        Game_ClickCounter game(app.context());
+        OldCat::Application app("Tiny Dungeon", OldCat::Vector2(512.0f, 512.0f));
+        Game_TinyDungeon game(app.context());
 
         app.run(game);
     }

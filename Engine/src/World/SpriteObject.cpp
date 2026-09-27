@@ -9,12 +9,12 @@
 namespace OldCat
 {
 	SpriteObject::SpriteObject(std::string name, OldCat::GameContext& context, Transform transform,
-		const char* path, OldCat::Rect rect)
+		const char* texturePath, OldCat::Rect spriteRect)
 		: OldCat::Object(std::move(name), context, transform)
 	{
 		m_spriteComponent = &addComponent<OldCat::SpriteComponent>(
-			context.assetManager().loadTexture(path),
-			rect
+			context.assetManager().loadTexture(texturePath),
+			spriteRect
 		);
 	}
 

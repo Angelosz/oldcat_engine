@@ -1,7 +1,7 @@
 add_executable(OldCatSandbox
     main.cpp
-    Game_ClickCounter.cpp
- "Plant.h" "Plant.cpp")
+    tinydungeon_src/Game_TinyDungeon.cpp
+)
 
 target_link_libraries(OldCatSandbox
     PRIVATE
