@@ -34,6 +34,9 @@ namespace OldCat
 		Input& input();
 		AssetManager& assetManager();
 
+		World& world();
+		UI& ui();
+
 		template<typename T, typename... Args> T& spawn(Args&&... args)
 		{
 			return m_world.spawn<T>(

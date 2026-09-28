@@ -50,4 +50,14 @@ namespace OldCat
 	{
 		return m_context.assetManager();
 	}
+
+	World& Game::world()
+	{
+		return m_world;
+	}
+
+	UI& Game::ui()
+	{
+		return m_ui;
+	}
 }

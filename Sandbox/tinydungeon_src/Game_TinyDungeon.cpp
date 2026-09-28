@@ -4,24 +4,45 @@
 #include <OldCat/Math/Rect.h>
 #include <OldCat/World/SpriteObject.h>
 #include <OldCat/World/Transform.h>
+#include "src/Grid.h"
 
 using OldCat::Vector2;
 using OldCat::Rect;
 using OldCat::Transform;
 
 Game_TinyDungeon::Game_TinyDungeon(OldCat::GameContext& gameContext) : OldCat::Game(gameContext)
-, m_font("assets/fonts/PressStart2P-Regular.ttf", 24.0f)
+, m_font("assets/fonts/PressStart2P-Regular.ttf", 24.0f), m_dungeonFactory(gameContext, world())
 {
-	spawn<OldCat::SpriteObject>(
-		"Background",
+	spawn<Grid>(
+		"Grid",
 		context(),
-		Transform { Vector2(256.0f, 256.0f) },
-		"assets/tinydungeon/images/T_Floor.png",
-		Rect(
-			Vector2(-16.0f, -16.0f),
-			Vector2(32.0f, 32.0f)
-		)
-			);
+		Transform{ Vector2(256.0f, 256.0f) },
+		m_dungeonFactory,
+		6, 6, 32.0f,
+		std::vector<std::string>{
+			"W", "W", "W", "W", "W", "W",
+			"W", "F", "F", "F", "F", "W",
+			"W", "F", "F", "F", "F", "W",
+			"W", "F", "F", "F", "F", "W",
+			"W", "F", "F", "F", "F", "W",
+			"W", "W", "W", "W", "W", "W",
+		/*"W", "W", "W", "W", "W", "W","W", "W", "W", "W", "W", "W", "W", "W", "W", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "F", "F", "F", "F", "F","F", "F", "F", "F", "F", "F", "F", "F", "F", "W",
+		"W", "W", "W", "W", "W", "W","W", "W", "W", "W", "W", "W", "W", "W", "W", "W",*/
+	});
 }
 
 void Game_TinyDungeon::update(float deltaTime) { }

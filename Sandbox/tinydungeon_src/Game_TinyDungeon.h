@@ -3,6 +3,8 @@
 #include <OldCat/Core/Game.h>
 #include <OldCat/Graphics/Font.h>
 
+#include "src/DungeonFactory.h"
+
 class Game_TinyDungeon : public OldCat::Game
 {
 public:
@@ -13,4 +15,5 @@ public:
 
 private:
 	OldCat::Font m_font;
+	DungeonFactory m_dungeonFactory;
 };

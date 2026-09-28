@@ -1,6 +1,9 @@
 add_executable(OldCatSandbox
     main.cpp
     tinydungeon_src/Game_TinyDungeon.cpp
+    tinydungeon_src/src/Cell.cpp
+    tinydungeon_src/src/Grid.cpp
+    tinydungeon_src/src/DungeonFactory.cpp
 )
 
 target_link_libraries(OldCatSandbox
