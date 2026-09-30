@@ -5,6 +5,7 @@ add_executable(OldCatSandbox
     tinydungeon_src/src/Grid.cpp
     tinydungeon_src/src/DungeonFactory.cpp
     tinydungeon_src/src/GamePiece.cpp
+    tinydungeon_src/src/Components/GameSpriteComponent.cpp
 )
 
 target_link_libraries(OldCatSandbox

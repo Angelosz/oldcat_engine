@@ -2,8 +2,7 @@
 
 #include <OldCat/World/Object.h>
 #include "CellType.h"
-
-#include <OldCat/Components/SpriteComponent.h>
+#include "Components/GameSpriteComponent.h"
 
 class Cell : public OldCat::Object
 {
@@ -18,5 +17,5 @@ public:
 
 private:
 	CellType m_type;
-	OldCat::SpriteComponent* m_sprite;
+	GameSpriteComponent* m_sprite;
 };

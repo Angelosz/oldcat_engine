@@ -1,6 +1,8 @@
 #pragma once
 #include <OldCat/World/Object.h>
+
 #include "PieceType.h"
+#include "Components/GameSpriteComponent.h"
 
 class GamePiece : public OldCat::Object
 {
@@ -10,4 +12,8 @@ public:
 	);
 
 	void update(float deltaTime) override;
+
+private:
+	GameSpriteComponent* m_sprite;
+	PieceType m_type;
 };
