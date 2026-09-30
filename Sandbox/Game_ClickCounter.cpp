@@ -1,11 +1,13 @@
 #include "Game_ClickCounter.h"
 
 #include <OldCat/Core/GameContext.h>
+#include <OldCat/Input/Input.h>
 #include <OldCat/Math/Rect.h>
 #include <OldCat/World/SpriteObject.h>
 #include <OldCat/World/Transform.h>
 
 #include <string>
+#include <iostream>
 
 using OldCat::Vector2;
 using OldCat::Rect;
@@ -52,6 +54,37 @@ void Game_ClickCounter::increaseCounter()
 	m_clicksText->setText("Clicks: " + std::to_string(m_counter));
 }
 
-void Game_ClickCounter::update(float deltaTime) {}
+void Game_ClickCounter::update(float deltaTime) {
+	if (input().wasKeyPressed(OldCat::Key::Up))
+	{
+		std::cout << "Up was Pressed!" << '\n';
+	}
+	if (input().wasKeyPressed(OldCat::Key::Down))
+	{
+		std::cout << "Down was Pressed!" << '\n';
+	}
+	if (input().wasKeyPressed(OldCat::Key::Left))
+	{
+		std::cout << "Left was Pressed!" << '\n';
+	}
+	if (input().wasKeyPressed(OldCat::Key::Right))
+	{
+		std::cout << "Right was Pressed!" << '\n';
+	}
+
+	if (input().wasMouseButtonPressed(OldCat::MouseButton::Left))
+	{
+		std::cout << "Left Click!" << '\n';
+	}
+	if (input().wasMouseButtonPressed(OldCat::MouseButton::Middle))
+	{
+		std::cout << "Middle Click!" << '\n';
+	}
+	if (input().wasMouseButtonPressed(OldCat::MouseButton::Right))
+	{
+		std::cout << "Right Click!" << '\n';
+	}
+
+}
 
 void Game_ClickCounter::render() {}
