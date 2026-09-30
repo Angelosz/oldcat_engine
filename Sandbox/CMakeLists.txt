@@ -2,11 +2,11 @@ add_executable(OldCatSandbox
     main.cpp
     tinydungeon_src/Game_TinyDungeon.cpp
     tinydungeon_src/src/Cell.cpp
-    tinydungeon_src/src/Grid.cpp
     tinydungeon_src/src/DungeonFactory.cpp
     tinydungeon_src/src/GamePiece.cpp
     tinydungeon_src/src/Components/GameSpriteComponent.cpp
- "tinydungeon_src/src/Constants.h")
+    tinydungeon_src/src/GameTable.cpp
+)
 
 target_link_libraries(OldCatSandbox
     PRIVATE

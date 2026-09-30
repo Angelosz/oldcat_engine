@@ -4,6 +4,7 @@
 #include <OldCat/Graphics/Font.h>
 
 #include "src/DungeonFactory.h"
+#include "src/GamePiece.h"
 
 namespace TinyDungeon
 {
@@ -18,5 +19,10 @@ namespace TinyDungeon
 	private:
 		OldCat::Font m_font;
 		DungeonFactory m_dungeonFactory;
+
+		GameTable* m_table = nullptr;
+
+		//void playEnemiesTurn();
+		//void playEnvironmentTurn();
 	};
 }

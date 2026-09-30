@@ -6,6 +6,8 @@
 
 namespace TinyDungeon
 {
+	class GamePiece;
+
 	class Cell : public OldCat::Object
 	{
 	public:
@@ -17,8 +19,15 @@ namespace TinyDungeon
 		CellType& cellType();
 		OldCat::SpriteComponent& sprite();
 
+		GamePiece* gamePiece();
+		const GamePiece* gamePiece() const;
+
+		void setGamePiece(GamePiece* piece);
+
 	private:
 		CellType m_type;
 		GameSpriteComponent* m_sprite;
+
+		GamePiece* m_gamePiece = nullptr;
 	};
 }

@@ -9,7 +9,7 @@ namespace TinyDungeon
 {
 	Cell::Cell(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
 		const char* texturePath, CellType cellType)
-	: OldCat::Object(name, gameContext, transform), m_type(cellType)
+	: OldCat::Object(name, gameContext, transform), m_type(cellType), m_sprite(nullptr), m_gamePiece(nullptr)
 	{
 		m_sprite = &addComponent<GameSpriteComponent>(
 			assetManager().loadTexture(texturePath)
@@ -27,4 +27,20 @@ namespace TinyDungeon
 	{
 		return *m_sprite;
 	}
+
+	GamePiece* Cell::gamePiece()
+	{
+		return m_gamePiece;
+	}
+
+	const GamePiece* Cell::gamePiece() const
+	{
+		return m_gamePiece;
+	}
+
+	void Cell::setGamePiece(GamePiece* gamePiece)
+	{
+		m_gamePiece = gamePiece;
+	}
+
 }
