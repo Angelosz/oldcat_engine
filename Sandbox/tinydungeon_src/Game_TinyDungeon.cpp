@@ -31,7 +31,7 @@ namespace TinyDungeon
 
 		m_table = &m_dungeonFactory.setupDungeon(grid, nRows, nColumns, CellSize);
 
-		&addWidget<OldCat::Text>(
+		m_goldCollectedText = &addWidget<OldCat::Text>(
 			Vector2{ 12.0f, 12.0f },
 			m_font,
 			"Gold Collected: 0 / 1"

@@ -5,6 +5,7 @@
 
 #include "src/DungeonFactory.h"
 #include "src/GamePiece.h"
+#include <OldCat/UI/Text.h>
 
 namespace TinyDungeon
 {
@@ -21,6 +22,7 @@ namespace TinyDungeon
 		DungeonFactory m_dungeonFactory;
 
 		GameTable* m_table = nullptr;
+		OldCat::Text* m_goldCollectedText = nullptr;
 
 		//void playEnemiesTurn();
 		//void playEnvironmentTurn();
