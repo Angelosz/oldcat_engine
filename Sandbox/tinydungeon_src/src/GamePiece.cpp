@@ -4,13 +4,16 @@
 #include <OldCat/Core/GameContext.h>
 #include <OldCat/World/Transform.h>
 
-GamePiece::GamePiece(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-	const char* texturePath, PieceType pieceType
-) : OldCat::Object(name, gameContext, transform), m_type(pieceType)
+namespace TinyDungeon
 {
-	m_sprite = &addComponent<GameSpriteComponent>(
-		assetManager().loadTexture(texturePath)
-	);
-}
+	GamePiece::GamePiece(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
+		const char* texturePath, PieceType pieceType
+	) : OldCat::Object(name, gameContext, transform), m_type(pieceType)
+	{
+		m_sprite = &addComponent<GameSpriteComponent>(
+			assetManager().loadTexture(texturePath)
+		);
+	}
 
-void GamePiece::update(float deltaTime) { }
+	void GamePiece::update(float deltaTime) {}
+}

@@ -6,7 +6,7 @@ add_executable(OldCatSandbox
     tinydungeon_src/src/DungeonFactory.cpp
     tinydungeon_src/src/GamePiece.cpp
     tinydungeon_src/src/Components/GameSpriteComponent.cpp
-)
+ "tinydungeon_src/src/Constants.h")
 
 target_link_libraries(OldCatSandbox
     PRIVATE

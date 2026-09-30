@@ -2,8 +2,11 @@
 
 #include <OldCat/Components/SpriteComponent.h>
 
-class GameSpriteComponent : public OldCat::SpriteComponent
+namespace TinyDungeon
 {
-public:
-	GameSpriteComponent(OldCat::Object& object, OldCat::Texture& texture);
-};
+	class GameSpriteComponent : public OldCat::SpriteComponent
+	{
+	public:
+		GameSpriteComponent(OldCat::Object& object, OldCat::Texture& texture);
+	};
+}

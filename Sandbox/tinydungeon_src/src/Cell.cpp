@@ -4,23 +4,27 @@
 #include <OldCat/Assets/AssetManager.h>
 #include <OldCat/World/Transform.h>
 
-Cell::Cell(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-	const char* texturePath, CellType cellType)
-: OldCat::Object(name, gameContext, transform), m_type(cellType)
-{
-	m_sprite = &addComponent<GameSpriteComponent>(
-		assetManager().loadTexture(texturePath)
-	);
-}
 
-void Cell::update(float deltaTime) { }
-
-CellType& Cell::cellType()
+namespace TinyDungeon
 {
-	return m_type;
-}
+	Cell::Cell(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
+		const char* texturePath, CellType cellType)
+	: OldCat::Object(name, gameContext, transform), m_type(cellType)
+	{
+		m_sprite = &addComponent<GameSpriteComponent>(
+			assetManager().loadTexture(texturePath)
+		);
+	}
 
-OldCat::SpriteComponent& Cell::sprite()
-{
-	return *m_sprite;
+	void Cell::update(float deltaTime) { }
+
+	CellType& Cell::cellType()
+	{
+		return m_type;
+	}
+
+	OldCat::SpriteComponent& Cell::sprite()
+	{
+		return *m_sprite;
+	}
 }

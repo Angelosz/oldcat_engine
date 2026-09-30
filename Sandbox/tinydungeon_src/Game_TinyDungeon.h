@@ -5,15 +5,18 @@
 
 #include "src/DungeonFactory.h"
 
-class Game_TinyDungeon : public OldCat::Game
+namespace TinyDungeon
 {
-public:
-	explicit Game_TinyDungeon(OldCat::GameContext& gameContext);
+	class Game_TinyDungeon : public OldCat::Game
+	{
+	public:
+		explicit Game_TinyDungeon(OldCat::GameContext& gameContext);
 
-	void update(float deltaTime) override;
-	void render() override;
+		void update(float deltaTime) override;
+		void render() override;
 
-private:
-	OldCat::Font m_font;
-	DungeonFactory m_dungeonFactory;
-};
+	private:
+		OldCat::Font m_font;
+		DungeonFactory m_dungeonFactory;
+	};
+}

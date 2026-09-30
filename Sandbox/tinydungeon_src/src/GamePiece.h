@@ -4,16 +4,19 @@
 #include "PieceType.h"
 #include "Components/GameSpriteComponent.h"
 
-class GamePiece : public OldCat::Object
+namespace TinyDungeon
 {
-public:
-	GamePiece(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-		const char* texturePath, PieceType pieceType
-	);
+	class GamePiece : public OldCat::Object
+	{
+	public:
+		GamePiece(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
+			const char* texturePath, PieceType pieceType
+		);
 
-	void update(float deltaTime) override;
+		void update(float deltaTime) override;
 
-private:
-	GameSpriteComponent* m_sprite;
-	PieceType m_type;
-};
+	private:
+		GameSpriteComponent* m_sprite;
+		PieceType m_type;
+	};
+}

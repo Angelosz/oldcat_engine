@@ -8,14 +8,17 @@ namespace OldCat
 	class World;
 }
 
-class DungeonFactory
+namespace TinyDungeon
 {
-public:
-	DungeonFactory(OldCat::GameContext& gameContext, OldCat::World& world);
+	class DungeonFactory
+	{
+	public:
+		DungeonFactory(OldCat::GameContext& gameContext, OldCat::World& world);
 
-	Cell* createCell(std::string type, OldCat::Transform trasnform);
+		Cell* createCell(std::string type, OldCat::Transform trasnform);
 
-private:
-	OldCat::GameContext& m_context;
-	OldCat::World& m_world;
-};
+	private:
+		OldCat::GameContext& m_context;
+		OldCat::World& m_world;
+	};
+}

@@ -1,9 +1,12 @@
 #pragma once
 
-enum PieceType
+namespace TinyDungeon
 {
-	Player,
-	Enemy,
-	Gold,
-	Door
-};
+	enum PieceType
+	{
+		Player,
+		Enemy,
+		Gold,
+		Door
+	};
+}

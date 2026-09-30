@@ -1,8 +1,11 @@
 #pragma once
 
-enum CellType
+namespace TinyDungeon
 {
-	Floor,
-	Wall,
-	Water
-};
+	enum CellType
+	{
+		Floor,
+		Wall,
+		Water
+	};
+}
