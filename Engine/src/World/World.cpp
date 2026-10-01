@@ -13,7 +13,7 @@ namespace OldCat
 	{
 		for (auto& object : m_objects)
 		{
-			object->update(deltaTime);
+			if(object->isActive()) object->update(deltaTime);
 		}
 	}
 
@@ -25,7 +25,7 @@ namespace OldCat
 			{
 				if (auto* render = dynamic_cast<RenderComponent*>(component.get()))
 				{
-					render->render(m_context.renderer());
+					if(object->isVisible() && object->isActive()) render->render(m_context.renderer());
 				}
 			}
 		}

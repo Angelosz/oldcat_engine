@@ -10,11 +10,30 @@ namespace OldCat
 	Object::Object(std::string name, GameContext& context, Transform transform)
 		: m_name(name), m_context(context), m_transform(transform) { }
 
+	void Object::setIsActive(bool isActive)
+	{
+		m_isActive = isActive;
+	}
+
+	void Object::setVisibility(bool isVisible)
+	{
+		m_isVisible = isVisible;
+	}
+	
+	bool Object::isActive() const
+	{
+		return m_isActive;
+	}
+
+	bool Object::isVisible() const
+	{
+		return m_isVisible;
+	}
+
 	EventDispatcher& Object::events()
 	{
 		return m_events;
 	}
-	
 
 	const std::string& Object::name() const
 	{
