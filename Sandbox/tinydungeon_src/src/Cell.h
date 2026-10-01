@@ -12,11 +12,12 @@ namespace TinyDungeon
 	{
 	public:
 		Cell(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-			const char* texturePath, CellType cellType);
+			const char* texturePath, CellType cellType, OldCat::Vector2 position);
 
 		void update(float deltaTime) override;
 
 		CellType& cellType();
+		const OldCat::Vector2 position() const;
 		OldCat::SpriteComponent& sprite();
 
 		GamePiece* gamePiece();
@@ -24,8 +25,12 @@ namespace TinyDungeon
 
 		void setGamePiece(GamePiece* piece);
 
+		bool isOccupied() const;
+
 	private:
 		CellType m_type;
+		OldCat::Vector2 m_position;
+
 		GameSpriteComponent* m_sprite;
 
 		GamePiece* m_gamePiece = nullptr;

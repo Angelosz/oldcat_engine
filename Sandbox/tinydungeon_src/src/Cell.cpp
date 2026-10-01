@@ -1,4 +1,5 @@
 #include "Cell.h"
+#include "Cell.h"
 
 #include <OldCat/Core/GameContext.h>
 #include <OldCat/Assets/AssetManager.h>
@@ -8,8 +9,9 @@
 namespace TinyDungeon
 {
 	Cell::Cell(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-		const char* texturePath, CellType cellType)
-	: OldCat::Object(name, gameContext, transform), m_type(cellType), m_sprite(nullptr), m_gamePiece(nullptr)
+		const char* texturePath, CellType cellType, OldCat::Vector2 position)
+		: OldCat::Object(name, gameContext, transform)
+		, m_type(cellType), m_sprite(nullptr), m_gamePiece(nullptr), m_position(position)
 	{
 		m_sprite = &addComponent<GameSpriteComponent>(
 			assetManager().loadTexture(texturePath)
@@ -21,6 +23,11 @@ namespace TinyDungeon
 	CellType& Cell::cellType()
 	{
 		return m_type;
+	}
+
+	const OldCat::Vector2 Cell::position() const
+	{
+		return m_position;
 	}
 
 	OldCat::SpriteComponent& Cell::sprite()
@@ -41,6 +48,11 @@ namespace TinyDungeon
 	void Cell::setGamePiece(GamePiece* gamePiece)
 	{
 		m_gamePiece = gamePiece;
+	}
+
+	bool Cell::isOccupied() const
+	{
+		return m_gamePiece != nullptr;
 	}
 
 }

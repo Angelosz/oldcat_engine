@@ -27,8 +27,15 @@ namespace TinyDungeon
 		GamePiece* pieceAt(int column, int row);
 		const GamePiece* pieceAt(int column, int row) const;
 
+		GamePiece* playerPiece();
+
 		int columns() const;
 		int rows() const;
+
+		void movePiece(OldCat::Vector2 from, OldCat::Vector2 to);
+		void movePiece(Cell* from, Cell* to);
+		
+		void removeGamePiece(GamePiece* gamePiece);
 
 	private:
 		int m_columns;
@@ -40,5 +47,6 @@ namespace TinyDungeon
 		GamePiece* m_player = nullptr;
 
 		bool indexIsInBounds(int x, int y) const;
+		void assignGamePieceToCell(GamePiece& gamePiece);
 	};
 }

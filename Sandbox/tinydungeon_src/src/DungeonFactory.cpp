@@ -8,6 +8,9 @@
 #include "Constants.h"
 #include <iostream>
 
+using OldCat::Vector2;
+using OldCat::Transform;
+
 namespace TinyDungeon
 {
     DungeonFactory::DungeonFactory(OldCat::GameContext& gameContext, OldCat::World& world) 
@@ -15,11 +18,10 @@ namespace TinyDungeon
 
     GameTable& DungeonFactory::setupDungeon(std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
     {
-        GameTable& gameTable = m_world.spawn<GameTable>("GameTable", m_context, OldCat::Transform(), nColumns, nRows);
+        GameTable& gameTable = m_world.spawn<GameTable>("GameTable", m_context, Transform(), nColumns, nRows);
 
         createCells(gameTable, grid, nRows, nColumns, cellSize);
         createGamePieces(gameTable, grid, nRows, nColumns, cellSize);
-
 
         return gameTable;
     }
@@ -33,9 +35,9 @@ namespace TinyDungeon
                 const int index = row * nColumns + column;
                 char cellTypeIdentifier = grid[index][0];
 
-                OldCat::Transform transform =
-                    OldCat::Transform{
-                        OldCat::Vector2{
+                Transform transform =
+                    Transform{
+                        Vector2{
                             (WindowWidth / 2) + (column - (nColumns - 1) / 2.0f) * cellSize,
                             (WindowHeight / 2) + (row - (nRows - 1) / 2.0f) * cellSize
                         }
@@ -50,7 +52,8 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Floor.png",
-                            CellType::Floor
+                            CellType::Floor,
+                            Vector2(column, row)
                         )
                     );
                     break;
@@ -61,9 +64,11 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Wall.png",
-                            CellType::Wall
+                            CellType::Wall,
+                            Vector2( column, row)
                         )
                     );
+
                 default:
                     break;
                 }
@@ -80,9 +85,9 @@ namespace TinyDungeon
                 const int index = row * nColumns + column;
                 char cellTypeIdentifier = grid[index][0];
 
-                OldCat::Transform transform =
-                    OldCat::Transform{
-                        OldCat::Vector2{
+                Transform transform =
+                    Transform{
+                        Vector2{
                             (WindowWidth / 2) + (column - (nColumns - 1) / 2.0f) * cellSize,
                             (WindowHeight / 2) + (row - (nRows - 1) / 2.0f) * cellSize
                         }
@@ -100,7 +105,8 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Player.png",
-                            PieceType::Player
+                            PieceType::Player,
+                            Vector2(column, row)
                         ));
                         break;
                     case 'G':
@@ -109,7 +115,8 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Gold.png",
-                            PieceType::Gold
+                            PieceType::Gold,
+                            Vector2(column, row)
                         ));
                         break;
                     case 'D':
@@ -118,7 +125,8 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Door.png",
-                            PieceType::Door
+                            PieceType::Door,
+                            Vector2(column, row)
                         ));
                         break;
                     case 'E':
@@ -127,7 +135,8 @@ namespace TinyDungeon
                             m_context,
                             transform,
                             "assets/tinyDungeon/images/T_Slime.png",
-                            PieceType::Enemy
+                            PieceType::Enemy,
+                            Vector2(column, row)
                         ));
                     }
                 }

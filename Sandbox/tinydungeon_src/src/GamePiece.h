@@ -10,12 +10,19 @@ namespace TinyDungeon
 	{
 	public:
 		GamePiece(std::string name, OldCat::GameContext& gameContext, OldCat::Transform transform,
-			const char* texturePath, PieceType pieceType
+			const char* texturePath, PieceType pieceType, OldCat::Vector2 position
 		);
 
 		void update(float deltaTime) override;
 
+		OldCat::Vector2 position();
+		void updatePosition(OldCat::Vector2 newPosition);
+
+		PieceType pieceType();
+
 	private:
+		OldCat::Vector2 m_position;
+
 		GameSpriteComponent* m_sprite;
 		PieceType m_type;
 	};

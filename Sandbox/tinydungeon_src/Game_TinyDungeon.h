@@ -22,8 +22,10 @@ namespace TinyDungeon
 		DungeonFactory m_dungeonFactory;
 
 		GameTable* m_table = nullptr;
+		int m_goldCollected = 0;
 		OldCat::Text* m_goldCollectedText = nullptr;
 
+		void movePlayer(int xDirection, int yDirection);
 		//void playEnemiesTurn();
 		//void playEnvironmentTurn();
 	};
