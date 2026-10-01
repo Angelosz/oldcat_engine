@@ -61,6 +61,11 @@ namespace OldCat
 		const std::vector<std::unique_ptr<Component>>& getComponents() const;
 		const std::string& name() const;
 
+		void setVisibility(bool isVisible);
+		bool isVisible() const;
+		void setIsActive(bool isActive);
+		bool isActive() const;
+
 	protected:
 		GameContext& context();
 
@@ -76,5 +81,8 @@ namespace OldCat
 		std::vector<std::unique_ptr<Component>> m_components;
 
 		EventDispatcher m_events;
+
+		bool m_isVisible = true;
+		bool m_isActive = true;
 	};
 }
