@@ -1,6 +1,6 @@
 #pragma once
-
 #include <OldCat/World/Object.h>
+
 #include "CellType.h"
 #include "Components/GameSpriteComponent.h"
 

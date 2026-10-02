@@ -1,17 +1,10 @@
 #include "Game_TinyDungeon.h"
-#include "Game_TinyDungeon.h"
 
-#include <OldCat/Core/GameContext.h>
 #include <OldCat/Input/Input.h>
-#include <OldCat/Math/Rect.h>
-#include <OldCat/World/SpriteObject.h>
 #include <OldCat/World/Transform.h>
-#include <OldCat/UI/Text.h>
 
 #include "src/Constants.h"
 #include "src/GameTable.h"
-
-#include <iostream>
 
 using OldCat::Vector2;
 using OldCat::Rect;
@@ -81,7 +74,8 @@ namespace TinyDungeon
 
 	void Game_TinyDungeon::movePlayer(int xDirection, int yDirection)
 	{
-		Vector2 playerPosition = m_table->playerPiece()->position();
+		GamePiece* player = m_table->playerPiece();
+		Vector2 playerPosition = player->position();
 
 		Cell* playerCell = m_table->cellAt(
 			playerPosition.x,
@@ -93,31 +87,56 @@ namespace TinyDungeon
 			playerPosition.y + yDirection
 		);
 
-		if (targetCell != nullptr) {
-			CellType cellType = targetCell->cellType();
+		if (targetCell == nullptr)
+			return;
 
-			if (cellType == CellType::Floor)
-			{
-				if (targetCell->isOccupied())
-				{
-					GamePiece* targetGamePiece = targetCell->gamePiece();
+		CellType cellType = targetCell->cellType();
 
-					if (targetGamePiece->pieceType() == PieceType::Gold)
-					{
-						m_goldCollected++;
-						m_goldCollectedText->setText("Gold Collected: " + std::to_string(m_goldCollected) + " / 1");
+		if (targetCell->isOccupied())
+		{
+			GamePiece* targetGamePiece = targetCell->gamePiece();
 
-						targetGamePiece->setIsActive(false);
+			if (!player->canInteractWithGamePiece(targetGamePiece->pieceType()))
+				return;
 
-						m_table->removeGamePiece(targetGamePiece);
-						m_table->movePiece(playerCell, targetCell);
-					}
-				}
-				else {
-					m_table->movePiece(playerCell, targetCell);
-				}
+			resolveInteraction(player, targetGamePiece);
 
-			}
+			if (targetCell->isOccupied())
+				return;
+		}
+
+		if (player->canEnterCell(targetCell->cellType()))
+		{
+			m_table->movePiece(playerCell, targetCell);
+		}
+	}
+
+	void Game_TinyDungeon::resolveInteraction(GamePiece* player, GamePiece* targetGamePiece)
+	{
+		switch (targetGamePiece->pieceType())
+		{
+		case PieceType::Gold:
+			m_goldCollected++;
+			m_goldCollectedText->setText("Gold Collected: " + std::to_string(m_goldCollected) + " / 1");
+
+			targetGamePiece->setIsActive(false);
+
+			m_table->removeGamePiece(targetGamePiece);
+
+			destroy(*targetGamePiece);
+			break;
+
+		case PieceType::Door:
+			// Lo implementaremos cuando hagamos la victoria.
+			break;
+
+		case PieceType::Enemy:
+			// Lo implementaremos cuando hagamos el Game Over.
+			break;
+
+		case PieceType::Player:
+			// Lo usará el enemigo cuando implementemos su turno.
+			break;
 		}
 	}
 

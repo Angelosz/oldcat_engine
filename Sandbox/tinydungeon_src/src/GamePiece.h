@@ -2,6 +2,7 @@
 #include <OldCat/World/Object.h>
 
 #include "PieceType.h"
+#include "CellType.h"
 #include "Components/GameSpriteComponent.h"
 
 namespace TinyDungeon
@@ -19,6 +20,9 @@ namespace TinyDungeon
 		void updatePosition(OldCat::Vector2 newPosition);
 
 		PieceType pieceType();
+
+		bool canEnterCell(CellType cellType) const;
+		bool canInteractWithGamePiece(PieceType pieceType) const;
 
 	private:
 		OldCat::Vector2 m_position;

@@ -26,7 +26,6 @@ namespace TinyDungeon
 		OldCat::Text* m_goldCollectedText = nullptr;
 
 		void movePlayer(int xDirection, int yDirection);
-		//void playEnemiesTurn();
-		//void playEnvironmentTurn();
+		void resolveInteraction(GamePiece* player, GamePiece* gamePiece);
 	};
 }

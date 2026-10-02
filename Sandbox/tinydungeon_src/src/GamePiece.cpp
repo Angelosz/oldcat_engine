@@ -1,6 +1,4 @@
 #include "GamePiece.h"
-#include "GamePiece.h"
-#include "GamePiece.h"
 
 #include <OldCat/Assets/AssetManager.h>
 #include <OldCat/Core/GameContext.h>
@@ -32,5 +30,36 @@ namespace TinyDungeon
 	PieceType TinyDungeon::GamePiece::pieceType()
 	{
 		return m_type;
+	}
+	bool TinyDungeon::GamePiece::canEnterCell(CellType cellType) const
+	{
+		switch (m_type)
+		{
+		case PieceType::Player:
+			return cellType == CellType::Floor;
+
+		case PieceType::Enemy:
+			return cellType == CellType::Floor ||
+				cellType == CellType::Water;
+
+		default:
+			return false;
+		}
+	}
+	bool TinyDungeon::GamePiece::canInteractWithGamePiece(PieceType pieceType) const
+	{
+		switch (m_type)
+		{
+		case PieceType::Player:
+			return pieceType == PieceType::Gold ||
+				pieceType == PieceType::Door ||
+				pieceType == PieceType::Enemy;
+
+		case PieceType::Enemy:
+			return pieceType == PieceType::Player;
+
+		default:
+			return false;
+		}
 	}
 }

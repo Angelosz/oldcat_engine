@@ -6,7 +6,6 @@
 #include "GamePiece.h"
 #include "GameTable.h"
 #include "Constants.h"
-#include <iostream>
 
 using OldCat::Vector2;
 using OldCat::Transform;
@@ -68,7 +67,7 @@ namespace TinyDungeon
                             Vector2( column, row)
                         )
                     );
-
+                    break;
                 default:
                     break;
                 }

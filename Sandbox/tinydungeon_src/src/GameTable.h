@@ -1,6 +1,8 @@
 #pragma once
 #include <OldCat/World/Object.h>
 
+#include <vector>
+
 namespace TinyDungeon
 {
 

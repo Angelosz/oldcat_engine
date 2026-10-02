@@ -1,15 +1,7 @@
 #include "GameTable.h"
-#include "GameTable.h"
-#include "GameTable.h"
-#include "GameTable.h"
-#include "GameTable.h"
-#include "GameTable.h"
-#include "GameTable.h"
 
 #include "Cell.h"
 #include "GamePiece.h"
-
-#include <OldCat/Math/Vector2.h>
 
 namespace TinyDungeon
 {
@@ -24,7 +16,7 @@ namespace TinyDungeon
 
 	bool GameTable::indexIsInBounds(int x, int y) const
 	{
-		return x > 0 && y > 0 && x < m_columns && y < m_rows;
+		return x >= 0 && y >= 0 && x < m_columns && y < m_rows;
 	}
 
 	void GameTable::assignGamePieceToCell(GamePiece& gamePiece)
@@ -134,6 +126,7 @@ namespace TinyDungeon
 
 		movePiece(fromCell, toCell);
 	}
+
 	void GameTable::movePiece(Cell* from, Cell* to)
 	{
 		GamePiece* piece = from->gamePiece();
@@ -156,6 +149,9 @@ namespace TinyDungeon
 			Cell* cell = cellAt(position.x, position.y);
 
 			cell->setGamePiece(nullptr);
+
+			std::erase(m_environment, gamePiece);
+			std::erase(m_enemies, gamePiece);
 		}
 	}
 }

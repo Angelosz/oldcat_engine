@@ -1,8 +1,12 @@
 #pragma once
+#include <OldCat/World/Object.h>
 
 #include "Cell.h"
 #include "GamePiece.h"
 #include "GameTable.h"
+
+#include <string>
+#include <vector>
 
 namespace OldCat
 {
