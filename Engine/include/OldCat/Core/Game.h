@@ -27,6 +27,8 @@ namespace OldCat
 		void updateUI(float deltaTime);
 		void renderUI();
 
+		void endOfFrame();
+
 	protected:
 		GameContext& context();
 
@@ -51,6 +53,8 @@ namespace OldCat
 				std::forward<Args>(args)...
 			);
 		}
+
+		void destroy(Object& object);
 
 	private:
 		GameContext& m_context;
