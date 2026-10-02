@@ -13,6 +13,8 @@ namespace OldCat
 
 	class World
 	{
+		friend class Game;
+
 	public:
 		World(GameContext& gameContext);
 		~World() = default;
@@ -36,8 +38,13 @@ namespace OldCat
 		void update(float deltaTime);
 		void render();
 
+		void destroy(Object& object);
+
 	private:
 		std::vector<std::unique_ptr<Object>> m_objects;
 		GameContext& m_context;
+
+		std::vector<Object*> m_pendingDestroy;
+		void flushDestroyedObjects();
 	};
 }

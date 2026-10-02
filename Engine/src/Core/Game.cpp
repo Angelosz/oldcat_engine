@@ -25,6 +25,16 @@ namespace OldCat
 		m_ui.update(deltaTime);
 	}
 
+	void Game::endOfFrame()
+	{
+		m_world.flushDestroyedObjects();
+	}
+
+	void Game::destroy(Object& object)
+	{
+		m_world.destroy(object);
+	}
+
 	void Game::renderUI()
 	{
 		m_ui.render();

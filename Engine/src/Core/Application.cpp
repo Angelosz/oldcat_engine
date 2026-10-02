@@ -36,9 +36,12 @@ namespace OldCat
 
 			game.updateGame(m_time.deltaTime());
 
+			game.endOfFrame();
+
 			m_renderer.clear();
 			game.renderGame();
 			m_renderer.present();
+
 		}
 	}
 
