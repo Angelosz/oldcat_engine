@@ -105,14 +105,18 @@ namespace TinyDungeon
 					if (targetGamePiece->pieceType() == PieceType::Gold)
 					{
 						m_goldCollected++;
-
 						m_goldCollectedText->setText("Gold Collected: " + std::to_string(m_goldCollected) + " / 1");
 
+						targetGamePiece->setIsActive(false);
+
 						m_table->removeGamePiece(targetGamePiece);
+						m_table->movePiece(playerCell, targetCell);
 					}
 				}
+				else {
+					m_table->movePiece(playerCell, targetCell);
+				}
 
-				m_table->movePiece(playerCell, targetCell);
 			}
 		}
 	}
