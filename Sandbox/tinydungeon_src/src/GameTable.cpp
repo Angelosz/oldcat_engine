@@ -97,6 +97,11 @@ namespace TinyDungeon
 		return m_player;
 	}
 
+	std::vector<GamePiece*>& GameTable::enemies()
+	{
+		return m_enemies;
+	}
+
 	int GameTable::columns() const
 	{
 		return m_columns;

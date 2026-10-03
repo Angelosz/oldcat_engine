@@ -30,6 +30,7 @@ namespace TinyDungeon
 		const GamePiece* pieceAt(int column, int row) const;
 
 		GamePiece* playerPiece();
+		std::vector<GamePiece*>& enemies();
 
 		int columns() const;
 		int rows() const;

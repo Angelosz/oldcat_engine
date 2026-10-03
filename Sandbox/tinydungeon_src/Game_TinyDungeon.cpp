@@ -1,4 +1,5 @@
 #include "Game_TinyDungeon.h"
+#include "Game_TinyDungeon.h"
 
 #include <OldCat/Input/Input.h>
 #include <OldCat/World/Transform.h>
@@ -15,6 +16,7 @@ namespace TinyDungeon
 {
 	Game_TinyDungeon::Game_TinyDungeon(OldCat::GameContext& gameContext) : OldCat::Game(gameContext)
 		, m_font("assets/fonts/PressStart2P-Regular.ttf", 12.0f), m_dungeonFactory(gameContext, world())
+		, m_randomGenerator(std::random_device{}())
 	{
 		std::vector<std::string> grid{
 			"W", "W",	"W",	 "W",	"W",	"W",
@@ -35,36 +37,53 @@ namespace TinyDungeon
 			m_font,
 			"Gold Collected: 0 / 1"
 		);
+
+		m_gameState = GameState::PlayerTurn;
 	}
 
 	void Game_TinyDungeon::update(float deltaTime)
 	{
-		if (input().wasKeyPressed(Key::Up))
+		if (m_gameState == GameState::PlayerTurn)
 		{
-			if (m_table != nullptr)
+			if (input().wasKeyPressed(Key::Up))
 			{
-				movePlayer(0, -1);
+				if (m_table != nullptr)
+				{
+					if (movePlayer(0, -1))
+					{
+						playEnemyTurn();
+					}
+				}
 			}
-		}
-		if (input().wasKeyPressed(Key::Down))
-		{
-			if (m_table != nullptr)
+			if (input().wasKeyPressed(Key::Down))
 			{
-				movePlayer(0, 1);
+				if (m_table != nullptr)
+				{
+					if (movePlayer(0, 1))
+					{
+						playEnemyTurn();
+					}
+				}
 			}
-		}
-		if (input().wasKeyPressed(Key::Left))
-		{
-			if (m_table != nullptr)
+			if (input().wasKeyPressed(Key::Left))
 			{
-				movePlayer(-1, 0);
+				if (m_table != nullptr)
+				{
+					if (movePlayer(-1, 0))
+					{
+						playEnemyTurn();
+					}
+				}
 			}
-		}
-		if (input().wasKeyPressed(Key::Right))
-		{
-			if (m_table != nullptr)
+			if (input().wasKeyPressed(Key::Right))
 			{
-				movePlayer(1, 0);
+				if (m_table != nullptr)
+				{
+					if (movePlayer(1, 0))
+					{
+						playEnemyTurn();
+					}
+				}
 			}
 		}
 	}
@@ -72,7 +91,7 @@ namespace TinyDungeon
 
 	void Game_TinyDungeon::render() {}
 
-	void Game_TinyDungeon::movePlayer(int xDirection, int yDirection)
+	bool Game_TinyDungeon::movePlayer(int xDirection, int yDirection)
 	{
 		GamePiece* player = m_table->playerPiece();
 		Vector2 playerPosition = player->position();
@@ -88,27 +107,29 @@ namespace TinyDungeon
 		);
 
 		if (targetCell == nullptr)
-			return;
-
-		CellType cellType = targetCell->cellType();
+			return false;
 
 		if (targetCell->isOccupied())
 		{
 			GamePiece* targetGamePiece = targetCell->gamePiece();
 
 			if (!player->canInteractWithGamePiece(targetGamePiece->pieceType()))
-				return;
+				return false;
 
 			resolveInteraction(player, targetGamePiece);
 
 			if (targetCell->isOccupied())
-				return;
+				return false;
 		}
 
 		if (player->canEnterCell(targetCell->cellType()))
 		{
 			m_table->movePiece(playerCell, targetCell);
+			
+			return true;
 		}
+
+		return false;
 	}
 
 	void Game_TinyDungeon::resolveInteraction(GamePiece* player, GamePiece* targetGamePiece)
@@ -140,5 +161,49 @@ namespace TinyDungeon
 		}
 	}
 
+	void Game_TinyDungeon::playEnemyTurn()
+	{
+		m_gameState = GameState::EnemyTurn;
 
+		std::uniform_int_distribution<int> directionDistribution(0, 3);
+
+		for (GamePiece* enemy : m_table->enemies())
+		{
+			int direction = directionDistribution(m_randomGenerator);
+
+			switch (direction)
+			{
+			case 0:
+				moveEnemy(enemy, Vector2(0, -1));
+				break;
+			case 1:
+				moveEnemy(enemy, Vector2(0, 1));
+				break;
+			case 2:
+				moveEnemy(enemy, Vector2(-1, 0));
+				break;
+			case 3:
+				moveEnemy(enemy, Vector2(1, 0));
+				break;
+			}
+		}
+
+		m_gameState = GameState::PlayerTurn;
+	}
+
+	void Game_TinyDungeon::moveEnemy(GamePiece* enemy, Vector2 direction)
+	{
+		Vector2 enemyPosition = enemy->position();
+		Vector2 newPosition(
+			enemyPosition.x + direction.x,
+			enemyPosition.y + direction.y
+		);
+
+		Cell* targetCell = m_table->cellAt(newPosition.x, newPosition.y);
+
+		if (!targetCell->isOccupied() && enemy->canEnterCell(targetCell->cellType()))
+		{
+			m_table->movePiece(enemyPosition, newPosition);
+		}
+	}
 }

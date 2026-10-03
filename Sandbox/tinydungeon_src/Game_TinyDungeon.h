@@ -2,10 +2,13 @@
 
 #include <OldCat/Core/Game.h>
 #include <OldCat/Graphics/Font.h>
+#include <OldCat/UI/Text.h>
 
 #include "src/DungeonFactory.h"
 #include "src/GamePiece.h"
-#include <OldCat/UI/Text.h>
+#include "src/GameState.h"
+
+#include <random>
 
 namespace TinyDungeon
 {
@@ -20,12 +23,18 @@ namespace TinyDungeon
 	private:
 		OldCat::Font m_font;
 		DungeonFactory m_dungeonFactory;
+		std::mt19937 m_randomGenerator;
 
 		GameTable* m_table = nullptr;
 		int m_goldCollected = 0;
 		OldCat::Text* m_goldCollectedText = nullptr;
 
-		void movePlayer(int xDirection, int yDirection);
+		GameState m_gameState = GameState::Setup;
+
+		bool movePlayer(int xDirection, int yDirection);
 		void resolveInteraction(GamePiece* player, GamePiece* gamePiece);
+
+		void playEnemyTurn();
+		void moveEnemy(GamePiece* enemy, OldCat::Vector2 direction);
 	};
 }
