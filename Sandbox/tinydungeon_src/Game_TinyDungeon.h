@@ -25,6 +25,7 @@ namespace TinyDungeon
 		DungeonFactory m_dungeonFactory;
 		std::mt19937 m_randomGenerator;
 
+		std::vector<std::string> m_grid;
 		GameTable* m_table = nullptr;
 		int m_goldCollected = 0;
 		OldCat::Text* m_goldCollectedText = nullptr;
@@ -36,5 +37,7 @@ namespace TinyDungeon
 
 		void playEnemyTurn();
 		void moveEnemy(GamePiece* enemy, OldCat::Vector2 direction);
+
+		void gameOver();
 	};
 }

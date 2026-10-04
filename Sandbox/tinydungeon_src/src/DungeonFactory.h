@@ -21,13 +21,13 @@ namespace TinyDungeon
 	public:
 		DungeonFactory(OldCat::GameContext& gameContext, OldCat::World& world);
 
-		GameTable& setupDungeon(std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
+		GameTable& setupDungeon(const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
 
 	private:
 		OldCat::GameContext& m_context;
 		OldCat::World& m_world;
 
-		void createCells(GameTable& gameTable, std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
-		void createGamePieces(GameTable& gameTable, std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
+		void createCells(GameTable& gameTable, const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
+		void createGamePieces(GameTable& gameTable, const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize);
 	};
 }

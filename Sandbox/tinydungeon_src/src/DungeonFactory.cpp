@@ -15,7 +15,7 @@ namespace TinyDungeon
     DungeonFactory::DungeonFactory(OldCat::GameContext& gameContext, OldCat::World& world) 
         : m_context(gameContext), m_world(world) { }
 
-    GameTable& DungeonFactory::setupDungeon(std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
+    GameTable& DungeonFactory::setupDungeon(const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
     {
         GameTable& gameTable = m_world.spawn<GameTable>("GameTable", m_context, Transform(), nColumns, nRows);
 
@@ -25,7 +25,7 @@ namespace TinyDungeon
         return gameTable;
     }
 
-    void DungeonFactory::createCells(GameTable& gameTable, std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
+    void DungeonFactory::createCells(GameTable& gameTable, const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
     {
         for (int row = 0; row < nRows; ++row)
         {
@@ -75,7 +75,7 @@ namespace TinyDungeon
         }
     }
 
-    void DungeonFactory::createGamePieces(GameTable& gameTable, std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
+    void DungeonFactory::createGamePieces(GameTable& gameTable, const std::vector<std::string>& grid, int nRows, int nColumns, float cellSize)
     {
         for (int row = 0; row < nRows; ++row)
         {
@@ -137,6 +137,7 @@ namespace TinyDungeon
                             PieceType::Enemy,
                             Vector2(column, row)
                         ));
+                        break;
                     }
                 }
             }

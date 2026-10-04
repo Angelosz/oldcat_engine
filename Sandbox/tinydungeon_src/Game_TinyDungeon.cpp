@@ -1,5 +1,4 @@
 #include "Game_TinyDungeon.h"
-#include "Game_TinyDungeon.h"
 
 #include <OldCat/Input/Input.h>
 #include <OldCat/World/Transform.h>
@@ -18,7 +17,7 @@ namespace TinyDungeon
 		, m_font("assets/fonts/PressStart2P-Regular.ttf", 12.0f), m_dungeonFactory(gameContext, world())
 		, m_randomGenerator(std::random_device{}())
 	{
-		std::vector<std::string> grid{
+		std::vector<std::string> m_grid{
 			"W", "W",	"W",	 "W",	"W",	"W",
 			"W", "F_G", "F_F",	 "F_F",	"F_F",	"W",
 			"W", "F_F", "F_F",	 "F_F",	"F_P",	"W",
@@ -30,7 +29,7 @@ namespace TinyDungeon
 		int nRows = 6;
 		int nColumns = 6;
 
-		m_table = &m_dungeonFactory.setupDungeon(grid, nRows, nColumns, CellSize);
+		m_table = &m_dungeonFactory.setupDungeon(m_grid, nRows, nColumns, CellSize);
 
 		m_goldCollectedText = &addWidget<OldCat::Text>(
 			Vector2{ 12.0f, 12.0f },
@@ -188,7 +187,10 @@ namespace TinyDungeon
 			}
 		}
 
-		m_gameState = GameState::PlayerTurn;
+		if (m_gameState != GameState::Ended)
+		{
+			m_gameState = GameState::PlayerTurn;
+		}
 	}
 
 	void Game_TinyDungeon::moveEnemy(GamePiece* enemy, Vector2 direction)
@@ -201,9 +203,27 @@ namespace TinyDungeon
 
 		Cell* targetCell = m_table->cellAt(newPosition.x, newPosition.y);
 
-		if (!targetCell->isOccupied() && enemy->canEnterCell(targetCell->cellType()))
+		if (targetCell == nullptr) return;
+
+		if (enemy->canEnterCell(targetCell->cellType()))
 		{
-			m_table->movePiece(enemyPosition, newPosition);
+			if (!targetCell->isOccupied())
+			{
+				m_table->movePiece(enemyPosition, newPosition);
+			}
+			else
+			{
+				if (targetCell->gamePiece()->pieceType() == PieceType::Player)
+				{
+					m_table->movePiece(enemyPosition, newPosition);
+					gameOver();
+				}
+			}
 		}
+	}
+
+	void Game_TinyDungeon::gameOver()
+	{
+		m_gameState = GameState::Ended;
 	}
 }
