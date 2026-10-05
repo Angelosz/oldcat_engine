@@ -2,6 +2,7 @@ add_library(OldCatEngine STATIC
     src/Core/Application.cpp
     src/Core/GameContext.cpp
     src/Core/Game.cpp
+    src/Core/Time.cpp
     src/Graphics/Renderer.cpp
     src/Graphics/Font.cpp
     src/Graphics/Texture.cpp
@@ -13,6 +14,8 @@ add_library(OldCatEngine STATIC
     src/Math/Rect.cpp
     src/UI/UI.cpp
     src/UI/Widget.cpp
+    src/UI/Button.cpp
+    src/UI/TextWidget.cpp
     src/World/Object.cpp
     src/World/World.cpp
     src/World/SpriteObject.cpp
@@ -20,9 +23,7 @@ add_library(OldCatEngine STATIC
     src/Components/RenderComponent.cpp
     src/Components/SpriteComponent.cpp
     src/Components/ColliderComponent.cpp
-    src/UI/Text.cpp
     src/Events/EventDispatcher.cpp
-    src/Core/Time.cpp
 )
 
 target_include_directories(OldCatEngine

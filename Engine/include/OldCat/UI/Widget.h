@@ -1,6 +1,7 @@
 #pragma once
 
 #include <OldCat/Math/Vector2.h>
+#include <OldCat/Math/Rect.h>
 
 namespace OldCat
 {
@@ -12,7 +13,7 @@ namespace OldCat
 	class Widget
 	{
 	public:
-		explicit Widget(GameContext& context, Vector2 position);
+		explicit Widget(GameContext& context, Rect bounds);
 		virtual ~Widget() = default;
 
 		virtual void update(float deltaTime) = 0;
@@ -20,6 +21,9 @@ namespace OldCat
 
 		Vector2 position();
 		const Vector2 position() const;
+
+		Rect bounds();
+		const Rect bounds() const;
 
 	protected:
 		GameContext& context();
@@ -30,6 +34,6 @@ namespace OldCat
 
 	private:
 		GameContext& m_context;
-		Vector2 m_position;
+		Rect m_bounds;
 	};
 }
