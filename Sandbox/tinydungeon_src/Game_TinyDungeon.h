@@ -2,7 +2,7 @@
 
 #include <OldCat/Core/Game.h>
 #include <OldCat/Graphics/Font.h>
-#include <OldCat/UI/Text.h>
+#include <OldCat/UI/TextWidget.h>
 
 #include "src/DungeonFactory.h"
 #include "src/GamePiece.h"
@@ -28,7 +28,7 @@ namespace TinyDungeon
 		std::vector<std::string> m_grid;
 		GameTable* m_table = nullptr;
 		int m_goldCollected = 0;
-		OldCat::Text* m_goldCollectedText = nullptr;
+		OldCat::TextWidget* m_goldCollectedText = nullptr;
 
 		GameState m_gameState = GameState::Setup;
 

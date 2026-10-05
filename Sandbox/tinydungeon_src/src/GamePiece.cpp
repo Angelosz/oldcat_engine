@@ -1,4 +1,5 @@
 #include "GamePiece.h"
+#include "GamePiece.h"
 
 #include <OldCat/Assets/AssetManager.h>
 #include <OldCat/Core/GameContext.h>

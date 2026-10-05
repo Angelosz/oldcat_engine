@@ -119,7 +119,7 @@ namespace TinyDungeon
                         ));
                         break;
                     case 'D':
-                        gameTable.addEnvironmentPiece(m_world.spawn<GamePiece>(
+                        gameTable.addDoor(m_world.spawn<GamePiece>(
                             "Door",
                             m_context,
                             transform,

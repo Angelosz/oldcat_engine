@@ -1,4 +1,6 @@
 #include "GameTable.h"
+#include "GameTable.h"
+#include "GameTable.h"
 
 #include "Cell.h"
 #include "GamePiece.h"
@@ -52,6 +54,13 @@ namespace TinyDungeon
 		assignGamePieceToCell(gamePiece);
 	}
 
+	void GameTable::addDoor(GamePiece& gamePiece)
+	{
+		m_door = &gamePiece;
+
+		assignGamePieceToCell(gamePiece);
+	}
+
 	Cell* GameTable::cellAt(int column, int row)
 	{
 		if (indexIsInBounds(column, row))
@@ -100,6 +109,11 @@ namespace TinyDungeon
 	std::vector<GamePiece*>& GameTable::enemies()
 	{
 		return m_enemies;
+	}
+
+	GamePiece* GameTable::doorPiece()
+	{
+		return m_door;
 	}
 
 	int GameTable::columns() const

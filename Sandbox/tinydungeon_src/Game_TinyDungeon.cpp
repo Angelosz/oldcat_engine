@@ -2,6 +2,7 @@
 
 #include <OldCat/Input/Input.h>
 #include <OldCat/World/Transform.h>
+#include <OldCat/UI/Button.h>
 
 #include "src/Constants.h"
 #include "src/GameTable.h"
@@ -31,10 +32,15 @@ namespace TinyDungeon
 
 		m_table = &m_dungeonFactory.setupDungeon(m_grid, nRows, nColumns, CellSize);
 
-		m_goldCollectedText = &addWidget<OldCat::Text>(
-			Vector2{ 12.0f, 12.0f },
-			m_font,
-			"Gold Collected: 0 / 1"
+		m_goldCollectedText = &addWidget<OldCat::TextWidget>(
+			Rect{ Vector2{ 12.0f, 12.0f }, Vector2{ 128.0f, 128.0f } },
+			OldCat::Text(m_font, "Gold Collected: 0 / 1")
+		);
+
+		addWidget<OldCat::Button>(
+			Rect{ Vector2{ 128.0f, 368.0f }, Vector2{ 256.0f, 128.0f } },
+			[this](){},
+			"assets/tinydungeon/images/T_PanelBackground_256_128.png"
 		);
 
 		m_gameState = GameState::PlayerTurn;
@@ -144,6 +150,8 @@ namespace TinyDungeon
 			m_table->removeGamePiece(targetGamePiece);
 
 			destroy(*targetGamePiece);
+
+			m_table->doorPiece();
 			break;
 
 		case PieceType::Door:

@@ -22,6 +22,7 @@ namespace TinyDungeon
 		void addEnvironmentPiece(GamePiece& piece);
 		void addEnemyPiece(GamePiece& piece);
 		void addPlayer(GamePiece& piece);
+		void addDoor(GamePiece& piece);
 
 		Cell* cellAt(int column, int row);
 		const Cell* cellAt(int column, int row) const;
@@ -31,6 +32,7 @@ namespace TinyDungeon
 
 		GamePiece* playerPiece();
 		std::vector<GamePiece*>& enemies();
+		GamePiece* doorPiece();
 
 		int columns() const;
 		int rows() const;
@@ -48,6 +50,7 @@ namespace TinyDungeon
 		std::vector<GamePiece*> m_environment;
 		std::vector<GamePiece*> m_enemies;
 		GamePiece* m_player = nullptr;
+		GamePiece* m_door = nullptr;
 
 		bool indexIsInBounds(int x, int y) const;
 		void assignGamePieceToCell(GamePiece& gamePiece);
