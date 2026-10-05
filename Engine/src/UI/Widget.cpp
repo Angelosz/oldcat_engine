@@ -4,7 +4,8 @@
 
 namespace OldCat
 {
-	Widget::Widget(GameContext& gameContext, Vector2 position) : m_context(gameContext), m_position(position) { }
+	Widget::Widget(GameContext& gameContext, Rect bounds)
+		: m_context(gameContext), m_bounds(bounds) { }
 
 	GameContext& Widget::context()
 	{
@@ -13,12 +14,22 @@ namespace OldCat
 
 	Vector2 Widget::position()
 	{
-		return m_position;
+		return m_bounds.position();
 	}
 
 	const Vector2 Widget::position() const
 	{
-		return m_position;
+		return m_bounds.position();
+	}
+
+	Rect Widget::bounds()
+	{
+		return m_bounds;
+	}
+
+	const Rect Widget::bounds() const
+	{
+		return m_bounds;
 	}
 
 	Renderer& Widget::renderer()

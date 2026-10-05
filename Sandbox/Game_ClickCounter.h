@@ -2,7 +2,7 @@
 
 #include <OldCat/Core/Game.h>
 #include <OldCat/Graphics/Font.h>
-#include <OldCat/UI/Text.h>
+#include <OldCat/UI/TextWidget.h>
 
 #include "Plant.h"
 
@@ -18,7 +18,7 @@ private:
     int m_counter = 0;
 
     OldCat::Font m_font;
-    OldCat::Text* m_clicksText = nullptr;
+    OldCat::TextWidget* m_clicksText = nullptr;
 
     Plant* m_plant = nullptr;
 

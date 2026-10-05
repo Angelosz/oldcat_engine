@@ -1,31 +1,13 @@
 #pragma once
-
-#include <OldCat/UI/Widget.h>
-
 #include <string>
 
 namespace OldCat
 {
 	class Font;
 
-	class Text : public Widget
+	struct Text
 	{
-	public:
-		Text(
-			GameContext& context,
-			Vector2 position,
-			Font& font,
-			std::string text
-		);
-
-		void update(float deltaTime) override;
-		void render() override;
-
-		void setText(std::string text);
-		const std::string& text() const;
-
-	private:
-		Font& m_font;
-		std::string m_text;
+		Font& font;
+		std::string content;
 	};
 }

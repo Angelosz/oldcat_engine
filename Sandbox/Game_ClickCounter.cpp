@@ -8,6 +8,7 @@
 
 #include <string>
 #include <iostream>
+#include <OldCat/UI/Button.h>
 
 using OldCat::Vector2;
 using OldCat::Rect;
@@ -40,10 +41,16 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext) : OldCat:
 		}
 	);
 
-	m_clicksText = &addWidget<OldCat::Text>(
-		Vector2{ 32.0f, 32.0f },
-		m_font,
-		"Clicks: 0"
+	m_clicksText = &addWidget<OldCat::TextWidget>(
+		Rect{ Vector2{32.0f, 32.0f}, Vector2{ 0.0f, 0.0f } },
+		OldCat::Text{ m_font, "Clicks: 0" }
+	);
+
+	addWidget<OldCat::Button>(
+		Rect{ Vector2(232.0f, 896.0f), Vector2{256.0f, 256.0f} },
+		[this]() {
+			increaseCounter();
+		}
 	);
 }
 
