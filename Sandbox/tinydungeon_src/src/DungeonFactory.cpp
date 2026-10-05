@@ -4,6 +4,7 @@
 #include <OldCat/Core/GameContext.h>
 
 #include "GamePiece.h"
+#include "DoorGamePiece.h"
 #include "GameTable.h"
 #include "Constants.h"
 
@@ -119,12 +120,9 @@ namespace TinyDungeon
                         ));
                         break;
                     case 'D':
-                        gameTable.addDoor(m_world.spawn<GamePiece>(
-                            "Door",
+                        gameTable.addDoor(m_world.spawn<DoorGamePiece>(
                             m_context,
                             transform,
-                            "assets/tinyDungeon/images/T_Door.png",
-                            PieceType::Door,
                             Vector2(column, row)
                         ));
                         break;

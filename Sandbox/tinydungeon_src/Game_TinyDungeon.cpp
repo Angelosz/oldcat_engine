@@ -6,6 +6,7 @@
 
 #include "src/Constants.h"
 #include "src/GameTable.h"
+#include "src/DoorGamePiece.h"
 
 using OldCat::Vector2;
 using OldCat::Rect;
@@ -151,7 +152,7 @@ namespace TinyDungeon
 
 			destroy(*targetGamePiece);
 
-			m_table->doorPiece();
+			m_table->doorPiece()->openDoor();
 			break;
 
 		case PieceType::Door:

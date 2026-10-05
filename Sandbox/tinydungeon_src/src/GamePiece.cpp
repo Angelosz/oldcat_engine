@@ -1,5 +1,6 @@
 #include "GamePiece.h"
 #include "GamePiece.h"
+#include "GamePiece.h"
 
 #include <OldCat/Assets/AssetManager.h>
 #include <OldCat/Core/GameContext.h>
@@ -62,5 +63,10 @@ namespace TinyDungeon
 		default:
 			return false;
 		}
+	}
+
+	GameSpriteComponent& TinyDungeon::GamePiece::spriteComponent()
+	{
+		return *m_sprite;
 	}
 }

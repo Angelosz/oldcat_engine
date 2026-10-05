@@ -4,6 +4,7 @@ add_executable(OldCatSandbox
     tinydungeon_src/src/Cell.cpp
     tinydungeon_src/src/DungeonFactory.cpp
     tinydungeon_src/src/GamePiece.cpp
+    tinydungeon_src/src/DoorGamePiece.cpp
     tinydungeon_src/src/Components/GameSpriteComponent.cpp
     tinydungeon_src/src/GameTable.cpp
 )

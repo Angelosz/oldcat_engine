@@ -4,6 +4,7 @@
 
 #include "Cell.h"
 #include "GamePiece.h"
+#include "DoorGamePiece.h"
 
 namespace TinyDungeon
 {
@@ -54,7 +55,7 @@ namespace TinyDungeon
 		assignGamePieceToCell(gamePiece);
 	}
 
-	void GameTable::addDoor(GamePiece& gamePiece)
+	void GameTable::addDoor(DoorGamePiece& gamePiece)
 	{
 		m_door = &gamePiece;
 
@@ -111,7 +112,7 @@ namespace TinyDungeon
 		return m_enemies;
 	}
 
-	GamePiece* GameTable::doorPiece()
+	DoorGamePiece* GameTable::doorPiece()
 	{
 		return m_door;
 	}

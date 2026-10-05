@@ -24,6 +24,9 @@ namespace TinyDungeon
 		bool canEnterCell(CellType cellType) const;
 		bool canInteractWithGamePiece(PieceType pieceType) const;
 
+	protected:
+		GameSpriteComponent& spriteComponent();
+
 	private:
 		OldCat::Vector2 m_position;
 
