@@ -2,8 +2,6 @@
 
 #include <OldCat/Math/Rect.h>
 
-#include <string>
-
 namespace OldCat
 {
 	class Texture;
@@ -19,8 +17,10 @@ namespace OldCat
 		const Texture& texture() const;
 		const Rect& rect() const;
 
+		void setTexture(Texture& texture);
+
 	private:
-		Texture& m_texture;
+		Texture* m_texture;
 		Rect m_rect;
 	};
 }
