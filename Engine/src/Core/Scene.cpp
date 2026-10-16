@@ -6,14 +6,14 @@ namespace OldCat
 	Scene::Scene(GameContext& gameContext)
 		: m_context(gameContext), m_world(gameContext), m_ui(gameContext) { }
 
-	void Scene::updateGame(float deltaTime)
+	void Scene::updateScene(float deltaTime)
 	{
 		m_world.update(deltaTime);
 		update(deltaTime);
 		updateUI(deltaTime);
 	}
 
-	void Scene::renderGame()
+	void Scene::renderScene()
 	{
 		m_world.render();
 		render();

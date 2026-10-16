@@ -16,6 +16,9 @@ using OldCat::Transform;
 
 Scene_ClickCounter::Scene_ClickCounter(OldCat::GameContext& gameContext) : OldCat::Scene(gameContext)
 	, m_font("assets/fonts/PressStart2P-Regular.ttf", 32.0f)
+{ }
+
+void Scene_ClickCounter::onCreated()
 {
 	spawn<OldCat::SpriteObject>(
 		"Background",
@@ -91,7 +94,6 @@ void Scene_ClickCounter::update(float deltaTime) {
 	{
 		std::cout << "Right Click!" << '\n';
 	}
-
 }
 
 void Scene_ClickCounter::render() {}

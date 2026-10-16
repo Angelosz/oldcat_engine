@@ -14,6 +14,8 @@ public:
     void update(float deltaTime) override;
     void render() override;
 
+    void onCreated() override;
+
 private:
     int m_counter = 0;
 

@@ -21,6 +21,8 @@ namespace OldCat
 
 	void OldCat::Application::run(Scene& game)
 	{
+		game.onCreated();
+
 		bool running = true;
 
 		while (running)
@@ -34,14 +36,13 @@ namespace OldCat
 				continue;
 			}
 
-			game.updateGame(m_time.deltaTime());
+			game.updateScene(m_time.deltaTime());
 
 			game.endOfFrame();
 
 			m_renderer.clear();
-			game.renderGame();
+			game.renderScene();
 			m_renderer.present();
-
 		}
 	}
 

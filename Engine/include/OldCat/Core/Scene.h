@@ -18,8 +18,8 @@ namespace OldCat
 		explicit Scene(GameContext& gameContext);
 		virtual ~Scene() = default;
 
-		void updateGame(float deltaTime);
-		void renderGame();
+		void updateScene(float deltaTime);
+		void renderScene();
 
 		virtual void update(float deltaTime) = 0;
 		virtual void render() = 0;
@@ -28,6 +28,8 @@ namespace OldCat
 		void renderUI();
 
 		void endOfFrame();
+
+		virtual void onCreated() = 0;
 
 	protected:
 		GameContext& context();
