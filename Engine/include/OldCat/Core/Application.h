@@ -13,7 +13,7 @@
 
 namespace OldCat
 {
-	class Game;
+	class Scene;
 	class SDLContext;
 
 	class Application
@@ -25,7 +25,7 @@ namespace OldCat
 		Application(const Application&) = delete;
 		Application& operator=(const Application&) = delete;
 
-		void run(Game& game);
+		void run(Scene& scene);
 
 		GameContext& context();
 

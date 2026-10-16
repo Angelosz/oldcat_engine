@@ -13,7 +13,7 @@ namespace OldCat
 
 	class World
 	{
-		friend class Game;
+		friend class Scene;
 
 	public:
 		World(GameContext& gameContext);

@@ -1,7 +1,7 @@
 add_library(OldCatEngine STATIC
     src/Core/Application.cpp
     src/Core/GameContext.cpp
-    src/Core/Game.cpp
+    src/Core/Scene.cpp
     src/Core/Time.cpp
     src/Graphics/Renderer.cpp
     src/Graphics/Font.cpp

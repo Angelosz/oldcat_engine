@@ -1,6 +1,6 @@
 add_executable(OldCatSandbox
     main.cpp
-    Game_ClickCounter.cpp
+    Scene_ClickCounter.cpp
     Plant.cpp
 )
 

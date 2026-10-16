@@ -1,4 +1,4 @@
-#include "Game_ClickCounter.h"
+#include "Scene_ClickCounter.h"
 
 #include <OldCat/Core/GameContext.h>
 #include <OldCat/Input/Input.h>
@@ -14,7 +14,7 @@ using OldCat::Vector2;
 using OldCat::Rect;
 using OldCat::Transform;
 
-Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext) : OldCat::Game(gameContext)
+Scene_ClickCounter::Scene_ClickCounter(OldCat::GameContext& gameContext) : OldCat::Scene(gameContext)
 	, m_font("assets/fonts/PressStart2P-Regular.ttf", 32.0f)
 {
 	spawn<OldCat::SpriteObject>(
@@ -46,22 +46,22 @@ Game_ClickCounter::Game_ClickCounter(OldCat::GameContext& gameContext) : OldCat:
 		OldCat::Text{ m_font, "Clicks: 0" }
 	);
 
-	addWidget<OldCat::Button>(
+	/*addWidget<OldCat::Button>(
 		Rect{ Vector2(232.0f, 896.0f), Vector2{256.0f, 256.0f} },
 		[this]() {
 			increaseCounter();
 		}
-	);
+	);*/
 }
 
-void Game_ClickCounter::increaseCounter()
+void Scene_ClickCounter::increaseCounter()
 {
 	++m_counter;
 
 	m_clicksText->setText("Clicks: " + std::to_string(m_counter));
 }
 
-void Game_ClickCounter::update(float deltaTime) {
+void Scene_ClickCounter::update(float deltaTime) {
 	if (input().wasKeyPressed(OldCat::Key::Up))
 	{
 		std::cout << "Up was Pressed!" << '\n';
@@ -94,4 +94,4 @@ void Game_ClickCounter::update(float deltaTime) {
 
 }
 
-void Game_ClickCounter::render() {}
+void Scene_ClickCounter::render() {}

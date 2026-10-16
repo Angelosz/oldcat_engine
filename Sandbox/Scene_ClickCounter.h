@@ -1,15 +1,15 @@
 #pragma once
 
-#include <OldCat/Core/Game.h>
+#include <OldCat/Core/Scene.h>
 #include <OldCat/Graphics/Font.h>
 #include <OldCat/UI/TextWidget.h>
 
 #include "Plant.h"
 
-class Game_ClickCounter : public OldCat::Game
+class Scene_ClickCounter : public OldCat::Scene
 {
 public:
-    explicit Game_ClickCounter(OldCat::GameContext& gameContext);
+    explicit Scene_ClickCounter(OldCat::GameContext& gameContext);
 
     void update(float deltaTime) override;
     void render() override;

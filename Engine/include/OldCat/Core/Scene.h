@@ -12,11 +12,11 @@ namespace OldCat
 	class AssetManager;
 	class GameContext;
 
-	class Game
+	class Scene
 	{
 	public:
-		explicit Game(GameContext& gameContext);
-		virtual ~Game() = default;
+		explicit Scene(GameContext& gameContext);
+		virtual ~Scene() = default;
 
 		void updateGame(float deltaTime);
 		void renderGame();

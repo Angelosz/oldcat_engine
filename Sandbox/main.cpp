@@ -1,6 +1,6 @@
 #include <OldCat/Core/Application.h>
 
-#include "Game_ClickCounter.h"
+#include "Scene_ClickCounter.h"
 
 #include <exception>
 #include <iostream>
@@ -9,9 +9,9 @@ int main()
 {
     try {
         OldCat::Application app("Click Counter", OldCat::Vector2(720.0f, 1280.0f));
-        Game_ClickCounter game(app.context());
+        Scene_ClickCounter initialScene(app.context());
 
-        app.run(game);
+        app.run(initialScene);
     }
     catch (const std::exception& exception)
     {

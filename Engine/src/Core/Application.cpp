@@ -1,7 +1,7 @@
 #include <OldCat/Core/Application.h>
 
 #include <OldCat/Detail/SDLContext.h>
-#include <OldCat/Core/Game.h>
+#include <OldCat/Core/Scene.h>
 
 namespace OldCat
 {
@@ -19,7 +19,7 @@ namespace OldCat
 
 	OldCat::Application::~Application() = default;
 
-	void OldCat::Application::run(Game& game)
+	void OldCat::Application::run(Scene& game)
 	{
 		bool running = true;
 
